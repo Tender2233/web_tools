@@ -38,6 +38,13 @@
   align-items: center;
 }
 
+.json-tool__header > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
 .json-tool__indent {
   display: inline-flex;
   align-items: center;
@@ -49,6 +56,8 @@
 
 .json-tool__indent select {
   margin-top: 0;
+  height: 2.2rem;
+  line-height: 2.2rem;
 }
 
 .json-tool__indent-label {
@@ -71,12 +80,13 @@
 
 
 .json-tool__controls select {
-  margin-top: 0.2rem;
+  margin-top: 0;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--surface-strong);
   color: var(--fg);
   padding: 0.4rem 0.6rem;
+  height: 2.2rem;
 }
 
 button {
@@ -124,14 +134,18 @@ button.ghost {
 
 label {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.panes label {
+  flex-direction: column;
   height: 100%;
 }
 
-label textarea {
+.panes label textarea {
   flex: 1;
   min-height: 0;
 }

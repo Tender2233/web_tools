@@ -70,7 +70,7 @@ export const useJsonFormatter = () => {
     })
   }
 
-  const formatJson = (opts?: { silent?: boolean }) => {
+  const formatJsonInternal = (opts?: { silent?: boolean }) => {
     if (isInputEmpty.value) {
       updateOutputSilently('')
       return
@@ -139,11 +139,16 @@ export const useJsonFormatter = () => {
         updateOutputSilently('')
         return
       }
-      formatJson({ silent: true })
+      formatJsonInternal({ silent: true })
     }
   )
 
+  const formatJson = () => {
+    formatJsonInternal()
+  }
+
   watch(
+
     () => output.value,
     newValue => {
       if (suppressOutputWatch) {

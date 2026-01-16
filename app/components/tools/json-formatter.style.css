@@ -3,6 +3,14 @@
   flex-direction: column;
   gap: 1rem;
   color: var(--fg);
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+}
+
+.json-tool--full {
+  min-height: 0;
+  height: 100%;
 }
 
 .json-tool__header {
@@ -10,6 +18,7 @@
   justify-content: space-between;
   gap: 1.5rem;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .json-tool h2 {
@@ -30,7 +39,8 @@
 }
 
 .json-tool--full .panes {
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  min-height: 0;
 }
 
 .json-tool__controls label {
@@ -83,8 +93,13 @@ button.ghost {
 .panes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2%;
+  gap: 5%;
   width: 100%;
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 label {
@@ -96,21 +111,27 @@ label {
   height: 100%;
 }
 
+label textarea {
+  flex: 1;
+  min-height: 0;
+}
+
 textarea {
   border-radius: 16px;
   border: 1px solid var(--border);
   background: rgba(0, 0, 0, 0.08);
-  min-height: 38vh;
   padding: 1.2rem;
   color: var(--fg);
   font-size: 0.95rem;
   line-height: 1.5;
   font-family: 'SFMono-Regular', 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
   resize: vertical;
+  width: 100%;
+  min-height: 38vh;
 }
 
 .json-tool--full textarea {
-  min-height: 48vh;
+  min-height: 0;
 }
 
 textarea:focus {

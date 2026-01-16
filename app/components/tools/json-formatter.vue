@@ -30,8 +30,8 @@
         <textarea v-model="input" spellcheck="false" placeholder="在此粘贴 JSON 或手动输入"></textarea>
       </label>
       <label>
-        输出 (只读)
-        <textarea :value="output" spellcheck="false" readonly></textarea>
+        输出 / 编辑
+        <textarea v-model="output" spellcheck="false"></textarea>
       </label>
     </div>
 
@@ -49,6 +49,10 @@
 </template>
 
 <script setup lang="ts">
+const props = defineProps<{
+  layout?: 'full' | 'default'
+}>()
+
 const {
   compactJson,
   copyOutput,
@@ -63,6 +67,8 @@ const {
   resetJson,
   sizeStats
 } = useJsonFormatter()
+
+const layout = computed(() => props.layout ?? 'default')
 </script>
 
 <style scoped src="./json-formatter.style.css"></style>

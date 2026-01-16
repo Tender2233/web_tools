@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export const useJsonFormatter = () => {
   const input = ref('')
@@ -45,26 +45,57 @@ export const useJsonFormatter = () => {
     return 0
   }
 
-  const formatJson = () => {
+  let suppressInputWatch = false
+  let suppressOutputWatch = false
+
+  const updateInputSilently = (value: string) => {
+    if (input.value === value) {
+      return
+    }
+    suppressInputWatch = true
+    input.value = value
+    queueMicrotask(() => {
+      suppressInputWatch = false
+    })
+  }
+
+  const updateOutputSilently = (value: string) => {
+    if (output.value === value) {
+      return
+    }
+    suppressOutputWatch = true
+    output.value = value
+    queueMicrotask(() => {
+      suppressOutputWatch = false
+    })
+  }
+
+  const formatJson = (opts?: { silent?: boolean }) => {
     if (isInputEmpty.value) {
+      updateOutputSilently('')
       return
     }
     try {
       const parsed = JSON.parse(input.value)
-      output.value = JSON.stringify(parsed, null, indentString.value)
+      updateOutputSilently(JSON.stringify(parsed, null, indentString.value))
       error.value = ''
     } catch (err) {
-      error.value = err instanceof Error ? err.message : '未知错误'
+      if (!opts?.silent) {
+        error.value = err instanceof Error ? err.message : '未知错误'
+      }
     }
   }
 
   const compactJson = () => {
-    if (isInputEmpty.value) {
+    const source = output.value.trim() ? output.value : input.value
+    if (!source.trim()) {
       return
     }
     try {
-      const parsed = JSON.parse(input.value)
-      output.value = JSON.stringify(parsed)
+      const parsed = JSON.parse(source)
+      const compacted = JSON.stringify(parsed)
+      updateOutputSilently(compacted)
+      updateInputSilently(compacted)
       error.value = ''
     } catch (err) {
       error.value = err instanceof Error ? err.message : '未知错误'
@@ -72,8 +103,8 @@ export const useJsonFormatter = () => {
   }
 
   const resetJson = () => {
-    input.value = ''
-    output.value = ''
+    updateInputSilently('')
+    updateOutputSilently('')
     error.value = ''
   }
 
@@ -96,6 +127,34 @@ export const useJsonFormatter = () => {
     anchor.click()
     URL.revokeObjectURL(url)
   }
+
+  watch(
+    () => input.value,
+    () => {
+      if (suppressInputWatch) {
+        return
+      }
+      error.value = ''
+      if (isInputEmpty.value) {
+        updateOutputSilently('')
+        return
+      }
+      formatJson({ silent: true })
+    }
+  )
+
+  watch(
+    () => output.value,
+    newValue => {
+      if (suppressOutputWatch) {
+        return
+      }
+      if (newValue === input.value) {
+        return
+      }
+      updateInputSilently(newValue)
+    }
+  )
 
   return {
     compactJson,

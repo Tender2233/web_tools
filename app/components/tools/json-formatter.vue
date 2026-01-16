@@ -6,8 +6,8 @@
         <p>粘贴、编辑并在右侧即时查看格式化结果。支持多档缩进与错误提示。</p>
       </div>
       <div class="json-tool__controls">
-        <label>
-          缩进
+        <label class="json-tool__indent">
+          <span class="json-tool__indent-label">缩进</span>
           <select v-model="indentMode">
             <option value="2">2 空格</option>
             <option value="4">4 空格</option>

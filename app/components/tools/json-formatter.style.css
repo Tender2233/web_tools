@@ -35,7 +35,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  align-items: flex-end;
+  align-items: center;
+}
+
+.json-tool__indent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.json-tool__indent select {
+  margin-top: 0;
+}
+
+.json-tool__indent-label {
+  line-height: 1;
+}
+
+.json-tool__controls select {
+  margin-top: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  color: var(--fg);
+  padding: 0.4rem 0.6rem;
 }
 
 .json-tool--full .panes {
@@ -43,12 +69,6 @@
   min-height: 0;
 }
 
-.json-tool__controls label {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
 
 .json-tool__controls select {
   margin-top: 0.2rem;

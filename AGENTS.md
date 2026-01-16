@@ -38,3 +38,11 @@
 - Manual QA via `npm run dev` plus story-style tool toggles.
 - Before shipping, run `npm run generate` to ensure the build is static-friendly.
 - For deterministic utilities (e.g., hash helpers), add Vitest unit tests under `tests/` once the testing harness is introduced; until then rely on composable-level tests.
+
+## Current Implementation Plan
+1. 统一 landing 布局为紧凑 topbar + workspace，移除多余介绍模块以扩大工具区域。
+2. 将主题切换重构为右上角图标按钮，常驻全局且不遮挡内容。
+3. JSON 工具需占据主要视觉空间，提供足够高度与双栏布局支持巨型输入。
+4. 预留 tabs/placeholder，方便后续接入 Base64 与 SHA-256 工具。
+5. 精简顶部以外的文案/装饰，将 tabs 与工具面板压缩为百分比布局，让可交互区域填满余下页面。
+6. 去除多余标题与描述，仅保留极简 topbar（标记 + 主题按钮），其余高度交由工具面板使用。

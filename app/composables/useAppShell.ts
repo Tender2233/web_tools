@@ -1,6 +1,7 @@
-import { computed, defineAsyncComponent, onMounted, watch } from 'vue'
+import type { Component } from 'vue'
 
 type ToolId = 'json' | 'base64' | 'hash'
+
 
 type ToolMeta = {
   id: ToolId
@@ -41,7 +42,7 @@ export const useAppShell = () => {
     json: defineAsyncComponent(() => import('~/components/tools/json-formatter.vue')),
     base64: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue')),
     hash: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue'))
-  } satisfies Record<ToolId, ReturnType<typeof defineAsyncComponent>>
+  } as Record<ToolId, Component>
 
   const selectTool = (id: ToolId) => {
     activeTool.value = id
@@ -57,9 +58,10 @@ export const useAppShell = () => {
         layout: 'full'
       }
     }
+    const meta = activeToolMeta.value
     return {
-      title: activeToolMeta.value.label,
-      description: activeToolMeta.value.description
+      title: meta?.label ?? '',
+      description: meta?.description ?? ''
     }
   })
 

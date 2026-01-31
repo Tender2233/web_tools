@@ -43,8 +43,8 @@
 }
 
 .toggle {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--surface);
@@ -54,7 +54,7 @@
 }
 
 .toggle__icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .workspace {
@@ -150,10 +150,7 @@
     padding: 1.5rem 1rem 2rem;
   }
 
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  /* .topbar kept as row to maintain right button position */
 
   .surface {
     min-height: auto;

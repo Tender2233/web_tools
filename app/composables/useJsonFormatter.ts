@@ -1,178 +1,183 @@
 import { computed, ref, watch } from 'vue'
 
+interface JsonStats {
+  chars: number
+  bytes: number
+  lines: number
+  keys: number
+  depth: number
+}
+
 export const useJsonFormatter = () => {
   const input = ref('')
   const output = ref('')
   const error = ref('')
-  const indentMode = ref<'2' | '4' | 'tab'>('2')
-
-  const indentString = computed(() => {
-    if (indentMode.value === 'tab') {
-      return '\t'
-    }
-    return ' '.repeat(Number(indentMode.value))
-  })
+  const parsedValue = ref<unknown | null>(null)
+  const indentSize = ref<2 | 4>(2)
 
   const isInputEmpty = computed(() => input.value.trim().length === 0)
-
-  const paneColumns = computed(() => 'repeat(auto-fit, minmax(360px, 1fr))')
-
-  const sizeStats = computed(() => {
-    if (!output.value) {
-      return { chars: 0, keys: 0 }
-    }
-    try {
-      const parsed = JSON.parse(output.value)
-      return {
-        chars: output.value.length,
-        keys: countKeys(parsed)
-      }
-    } catch (err) {
-      return { chars: output.value.length, keys: 0 }
-    }
-  })
+  const hasValidOutput = computed(() => output.value.length > 0 && !error.value)
 
   const countKeys = (value: unknown): number => {
     if (Array.isArray(value)) {
-      return value.reduce((acc, item) => acc + countKeys(item), 0)
+      return value.reduce((acc: number, item) => acc + countKeys(item), 0)
     }
-    if (value && typeof value === 'object') {
-      return Object.values(value).reduce(
-        (acc, item) => acc + countKeys(item),
-        Object.keys(value as Record<string, unknown>).length
-      )
+    if (value && typeof value === 'object' && value !== null) {
+      const obj = value as Record<string, unknown>
+      return Object.keys(obj).length + Object.values(obj).reduce((acc: number, item) => acc + countKeys(item), 0)
     }
     return 0
   }
 
-  let suppressInputWatch = false
-  let suppressOutputWatch = false
-
-  const updateInputSilently = (value: string) => {
-    if (input.value === value) {
-      return
-    }
-    suppressInputWatch = true
-    input.value = value
-    queueMicrotask(() => {
-      suppressInputWatch = false
-    })
-  }
-
-  const updateOutputSilently = (value: string) => {
-    if (output.value === value) {
-      return
-    }
-    suppressOutputWatch = true
-    output.value = value
-    queueMicrotask(() => {
-      suppressOutputWatch = false
-    })
-  }
-
-  const formatJsonInternal = (opts?: { silent?: boolean }) => {
-    if (isInputEmpty.value) {
-      updateOutputSilently('')
-      return
-    }
-    try {
-      const parsed = JSON.parse(input.value)
-      updateOutputSilently(JSON.stringify(parsed, null, indentString.value))
-      error.value = ''
-    } catch (err) {
-      if (!opts?.silent) {
-        error.value = err instanceof Error ? err.message : '未知错误'
+  const getDepth = (value: unknown, current = 0): number => {
+    if (Array.isArray(value)) {
+      if (value.length === 0) {
+        return current
       }
+      return Math.max(...value.map(item => getDepth(item, current + 1)))
     }
+    if (value && typeof value === 'object' && value !== null) {
+      const obj = value as Record<string, unknown>
+      const keys = Object.keys(obj)
+      if (keys.length === 0) {
+        return current
+      }
+      return Math.max(...keys.map(key => getDepth(obj[key], current + 1)))
+    }
+    return current
   }
 
-  const compactJson = () => {
-    const source = output.value.trim() ? output.value : input.value
-    if (!source.trim()) {
-      return
-    }
+  const stats = computed<JsonStats>(() => {
+    const chars = output.value.length
+    const bytes = new TextEncoder().encode(output.value).length
+    const lines = output.value ? output.value.split('\n').length : 0
+    const keys = parsedValue.value ? countKeys(parsedValue.value) : 0
+    const depth = parsedValue.value ? getDepth(parsedValue.value) : 0
+    return { chars, bytes, lines, keys, depth }
+  })
+
+  const tryParse = (source: string): { parsed: unknown; error: string } => {
     try {
       const parsed = JSON.parse(source)
-      const compacted = JSON.stringify(parsed)
-      updateOutputSilently(compacted)
-      updateInputSilently(compacted)
-      error.value = ''
+      return { parsed, error: '' }
     } catch (err) {
-      error.value = err instanceof Error ? err.message : '未知错误'
+      if (err instanceof SyntaxError) {
+        return { parsed: null, error: err.message }
+      }
+      return { parsed: null, error: '解析失败' }
     }
   }
 
-  const resetJson = () => {
-    updateInputSilently('')
-    updateOutputSilently('')
+  const formatJson = () => {
+    if (isInputEmpty.value) {
+      output.value = ''
+      parsedValue.value = null
+      error.value = ''
+      return
+    }
+
+    const result = tryParse(input.value)
+    if (result.error) {
+      error.value = result.error
+      output.value = ''
+      parsedValue.value = null
+      return
+    }
+
+    error.value = ''
+    parsedValue.value = result.parsed
+    output.value = JSON.stringify(result.parsed, null, indentSize.value)
+  }
+
+  const minifyJson = () => {
+    if (isInputEmpty.value) {
+      output.value = ''
+      parsedValue.value = null
+      error.value = ''
+      return
+    }
+
+    const result = tryParse(input.value)
+    if (result.error) {
+      error.value = result.error
+      output.value = ''
+      parsedValue.value = null
+      return
+    }
+
+    error.value = ''
+    parsedValue.value = result.parsed
+    output.value = JSON.stringify(result.parsed)
+  }
+
+  const clearAll = () => {
+    input.value = ''
+    output.value = ''
+    parsedValue.value = null
     error.value = ''
   }
 
   const copyOutput = async () => {
-    if (!output.value) {
+    if (!hasValidOutput.value) {
       return
     }
-    await navigator.clipboard.writeText(output.value)
+    try {
+      await navigator.clipboard.writeText(output.value)
+    } catch (err) {
+      console.error('Copy failed:', err)
+    }
   }
 
-  const downloadOutput = () => {
-    if (!output.value) {
+  const downloadJson = () => {
+    if (!hasValidOutput.value) {
       return
     }
-    const blob = new Blob([output.value], { type: 'application/json' })
+    const blob = new Blob([output.value], { type: 'application/json;charset=utf-8' })
     const url = URL.createObjectURL(blob)
-    const anchor = document.createElement('a')
-    anchor.href = url
-    anchor.download = 'formatted.json'
-    anchor.click()
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `formatted-${Date.now()}.json`
+    link.click()
     URL.revokeObjectURL(url)
   }
 
-  watch(
-    () => input.value,
-    () => {
-      if (suppressInputWatch) {
-        return
-      }
-      error.value = ''
-      if (isInputEmpty.value) {
-        updateOutputSilently('')
-        return
-      }
-      formatJsonInternal({ silent: true })
+  // Auto-format on input change (debounced)
+  let formatTimer: ReturnType<typeof setTimeout> | null = null
+  watch(input, () => {
+    if (formatTimer) {
+      clearTimeout(formatTimer)
     }
-  )
-
-  const formatJson = () => {
-    formatJsonInternal()
-  }
-
-  watch(
-
-    () => output.value,
-    newValue => {
-      if (suppressOutputWatch) {
-        return
+    formatTimer = setTimeout(() => {
+      if (!isInputEmpty.value) {
+        formatJson()
+      } else {
+        output.value = ''
+        parsedValue.value = null
+        error.value = ''
       }
-      if (newValue === input.value) {
-        return
-      }
-      updateInputSilently(newValue)
+    }, 300)
+  })
+
+  // Re-format on indent size change
+  watch(indentSize, () => {
+    if (parsedValue.value !== null) {
+      output.value = JSON.stringify(parsedValue.value, null, indentSize.value)
     }
-  )
+  })
 
   return {
-    compactJson,
-    copyOutput,
-    downloadOutput,
-    error,
-    formatJson,
-    indentMode,
     input,
-    isInputEmpty,
     output,
-    paneColumns,
-    resetJson,
-    sizeStats
+    error,
+    indentSize,
+    stats,
+    isInputEmpty,
+    hasValidOutput,
+    parsedValue,
+    formatJson,
+    minifyJson,
+    clearAll,
+    copyOutput,
+    downloadJson
   }
 }

@@ -21,9 +21,8 @@ const tools: ToolMeta[] = [
   {
     id: 'base64',
     label: 'Base64 编解码',
-    badge: 'Next',
-    description: 'UTF-8 安全的编码与解码',
-    soon: true
+    badge: 'New',
+    description: 'UTF-8 安全的编码与解码'
   },
   {
     id: 'hash',
@@ -40,7 +39,7 @@ export const useAppShell = () => {
 
   const toolComponents = {
     json: defineAsyncComponent(() => import('~/components/tools/json-formatter.vue')),
-    base64: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue')),
+    base64: defineAsyncComponent(() => import('~/components/tools/base64-encoder.vue')),
     hash: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue'))
   } as Record<ToolId, Component>
 
@@ -53,7 +52,7 @@ export const useAppShell = () => {
   const activeToolMeta = computed(() => tools.find(tool => tool.id === activeTool.value) ?? tools[0])
 
   const activeToolProps = computed(() => {
-    if (activeTool.value === 'json') {
+    if (activeTool.value === 'json' || activeTool.value === 'base64') {
       return {
         layout: 'full'
       }

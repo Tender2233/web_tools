@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
 
-type ToolId = 'json' | 'base64' | 'hash'
+type ToolId = 'json' | 'base64' | 'timestamp' | 'hash'
 
 
 type ToolMeta = {
@@ -25,6 +25,12 @@ const tools: ToolMeta[] = [
     description: 'UTF-8 安全的编码与解码'
   },
   {
+    id: 'timestamp',
+    label: 'Timestamp',
+    badge: 'New',
+    description: 'Convert between Unix timestamp and formatted date/time'
+  },
+  {
     id: 'hash',
     label: 'SHA-256 工具',
     badge: 'Lab',
@@ -40,6 +46,7 @@ export const useAppShell = () => {
   const toolComponents = {
     json: defineAsyncComponent(() => import('~/components/tools/json-formatter.vue')),
     base64: defineAsyncComponent(() => import('~/components/tools/base64-encoder.vue')),
+    timestamp: defineAsyncComponent(() => import('~/components/tools/timestamp-converter.vue')),
     hash: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue'))
   } as Record<ToolId, Component>
 
@@ -52,7 +59,7 @@ export const useAppShell = () => {
   const activeToolMeta = computed(() => tools.find(tool => tool.id === activeTool.value) ?? tools[0])
 
   const activeToolProps = computed(() => {
-    if (activeTool.value === 'json' || activeTool.value === 'base64') {
+    if (activeTool.value === 'json' || activeTool.value === 'base64' || activeTool.value === 'timestamp') {
       return {
         layout: 'full'
       }

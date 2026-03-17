@@ -187,6 +187,10 @@ export const useTimestamp = () => {
 
   // ── Conversion logic ───────────────────────────────────────────────────────
 
+  // Guard: prevents the opposite watcher from re-triggering when we write
+  // programmatically to the other field (avoids ping-pong / blink).
+  let syncing = false
+
   /** Recompute the "other" field whenever inputs or settings change */
   function syncFromTimestamp() {
     const raw = timestampInput.value.trim()
@@ -196,7 +200,9 @@ export const useTimestamp = () => {
     const d = new Date(unit.value === 's' ? n * 1000 : n)
     if (isNaN(d.getTime())) { error.value = 'Timestamp out of range'; return }
     error.value = ''
+    syncing = true
     datetimeInput.value = formatInTimezone(d, selectedTimezone.value)
+    syncing = false
   }
 
   function syncFromDatetime() {
@@ -207,19 +213,23 @@ export const useTimestamp = () => {
     if (isNaN(d.getTime())) { error.value = 'Invalid date/time'; return }
     error.value = ''
     const ms = d.getTime()
+    syncing = true
     timestampInput.value = unit.value === 's'
       ? String(Math.floor(ms / 1000))
       : String(ms)
+    syncing = false
   }
 
   // ── Watchers ───────────────────────────────────────────────────────────────
 
   watch(timestampInput, () => {
+    if (syncing) return
     lastEdited.value = 'timestamp'
     syncFromTimestamp()
   })
 
   watch(datetimeInput, () => {
+    if (syncing) return
     lastEdited.value = 'datetime'
     syncFromDatetime()
   })

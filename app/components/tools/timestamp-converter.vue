@@ -457,7 +457,7 @@ const onTzBlur = () => {
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--win95-button-dark-shadow);
 }
 
 .ts-converter__panel-title {

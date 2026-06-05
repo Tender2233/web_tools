@@ -52,7 +52,7 @@
       <span class="ts-converter__now-ts">{{ nowTimestamp }}</span>
       <span class="ts-converter__now-sep">·</span>
       <span class="ts-converter__now-dt">{{ nowDatetime }}</span>
-      <button class="btn-primary ts-converter__use-now" @click="useNow">
+      <button class="btn btn-primary ts-converter__use-now" @click="useNow">
         <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
           <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
           <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
@@ -98,7 +98,7 @@
             spellcheck="false"
           />
           <button
-            class="ts-converter__copy-btn btn-ghost"
+            class="ts-converter__copy-btn btn btn-ghost"
             :disabled="!timestampInput"
             @click="copyTimestamp"
             :title="copiedField === 'ts' ? 'Copied!' : 'Copy timestamp'"
@@ -138,7 +138,7 @@
             spellcheck="false"
           />
           <button
-            class="ts-converter__copy-btn btn-ghost"
+            class="ts-converter__copy-btn btn btn-ghost"
             :disabled="!datetimeInput"
             @click="copyDatetime"
             :title="copiedField === 'dt' ? 'Copied!' : 'Copy datetime'"
@@ -182,7 +182,7 @@
 
     <!-- ── Actions ────────────────────────────────────────────────────── -->
     <div class="ts-converter__actions">
-      <button class="btn-ghost" @click="clearAll" :disabled="!timestampInput && !datetimeInput">
+      <button class="btn btn-ghost" @click="clearAll" :disabled="!timestampInput && !datetimeInput">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
           <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
         </svg>
@@ -262,10 +262,10 @@ const onTzBlur = () => {
   align-items: center;
   gap: 1rem;
   padding: 0.875rem 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  backdrop-filter: blur(12px);
+  background: var(--win95-button-face);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border-radius: 0;
 }
 
 .ts-converter__tz-label {
@@ -274,7 +274,7 @@ const onTzBlur = () => {
   gap: 0.5rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -294,7 +294,7 @@ const onTzBlur = () => {
 .ts-converter__tz-search-icon {
   position: absolute;
   left: 0.75rem;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -302,21 +302,21 @@ const onTzBlur = () => {
 .ts-converter__tz-search {
   width: 100%;
   padding: 0.5rem 0.875rem 0.5rem 2.25rem;
-  background: var(--surface-strong);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--fg);
+  background: var(--win95-surface);
+  border: 1px solid var(--win95-border-dark);
+  border-radius: 0;
+  color: var(--win95-text);
   font-size: 0.9375rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
 }
 
 .ts-converter__tz-search:focus {
-  border-color: var(--accent);
+  border-color: var(--win95-title-bar);
 }
 
 .ts-converter__tz-search::placeholder {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   opacity: 0.7;
 }
 
@@ -324,12 +324,13 @@ const onTzBlur = () => {
 :global(.ts-converter__tz-dropdown) {
   max-height: 220px;
   overflow-y: auto;
-  background: var(--surface-strong, rgba(255,255,255,0.08));
-  border: 1px solid var(--border, rgba(255,255,255,0.1));
-  border-radius: 10px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  background: var(--win95-surface);
+  border: none;
+  outline: 2px solid;
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  border-radius: 0;
+  box-shadow: none;
   z-index: 9999;
-  backdrop-filter: blur(16px);
 }
 
 :global(.ts-converter__tz-dropdown::-webkit-scrollbar) {
@@ -341,35 +342,35 @@ const onTzBlur = () => {
 }
 
 :global(.ts-converter__tz-dropdown::-webkit-scrollbar-thumb) {
-  background: var(--border, rgba(255,255,255,0.1));
-  border-radius: 3px;
+  background: var(--win95-button-dark-shadow);
+  border-radius: 0;
 }
 
 :global(.ts-converter__tz-option) {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  color: var(--fg, #f5f6fb);
+  color: var(--win95-text);
   cursor: pointer;
-  transition: background 0.15s ease;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 :global(.ts-converter__tz-option:hover) {
-  background: rgba(109, 123, 255, 0.12);
+  background: var(--win95-title-bar);
+  color: var(--win95-title-text);
 }
 
 :global(.ts-converter__tz-option.is-active) {
-  background: rgba(109, 123, 255, 0.2);
-  color: var(--accent, #6d7bff);
+  background: var(--win95-button-dark-shadow);
+  color: var(--win95-button-highlight);
   font-weight: 600;
 }
 
 :global(.ts-converter__tz-empty) {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
-  color: var(--muted, rgba(245,246,251,0.55));
+  color: var(--win95-text-disabled);
   text-align: center;
 }
 
@@ -379,9 +380,10 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  background: var(--win95-button-face);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border-radius: 0;
   font-size: 0.875rem;
   flex-wrap: wrap;
 }
@@ -389,7 +391,7 @@ const onTzBlur = () => {
 .ts-converter__now-label {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -399,12 +401,12 @@ const onTzBlur = () => {
 .ts-converter__now-dt {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.875rem;
-  color: var(--accent);
+  color: var(--win95-title-bar);
   white-space: nowrap;
 }
 
 .ts-converter__now-sep {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
 }
 
 .ts-converter__use-now {
@@ -419,10 +421,10 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  background: linear-gradient(135deg, rgba(255, 59, 92, 0.15), rgba(255, 23, 68, 0.1));
-  border: 1px solid rgba(255, 59, 92, 0.3);
-  border-radius: 8px;
-  color: #ff9eb3;
+  background: var(--win95-error-bg);
+  border: 2px solid var(--win95-error-border);
+  border-radius: 0;
+  color: var(--win95-error-text);
   font-size: 0.9375rem;
   animation: slideDown 0.3s ease-out;
 }
@@ -436,16 +438,17 @@ const onTzBlur = () => {
 }
 
 .ts-converter__panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: var(--win95-button-face);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border-radius: 0;
   overflow: hidden;
-  backdrop-filter: blur(12px);
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
   transition: border-color 0.2s ease;
 }
 
 .ts-converter__panel:focus-within {
-  border-color: var(--accent);
+  border-color: var(--win95-title-bar);
 }
 
 .ts-converter__panel-header {
@@ -462,12 +465,12 @@ const onTzBlur = () => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
 }
 
 .ts-converter__panel-hint {
   font-size: 0.75rem;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   opacity: 0.6;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
@@ -475,8 +478,8 @@ const onTzBlur = () => {
 /* sec / ms toggle */
 .ts-converter__unit-toggle {
   display: flex;
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -486,27 +489,22 @@ const onTzBlur = () => {
   font-weight: 600;
   border: none;
   border-radius: 0;
-  background: transparent;
-  color: var(--muted);
+  background: var(--win95-button-face);
+  color: var(--win95-text);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
 }
 
 .ts-converter__unit-btn:hover:not(.is-active) {
-  background: var(--surface-strong);
-  color: var(--fg);
-  transform: none;
-  box-shadow: none;
-  border-color: transparent;
-}
-
-.ts-converter__unit-btn::before {
-  display: none;
+  background: var(--win95-button-face);
 }
 
 .ts-converter__unit-btn.is-active {
-  background: var(--accent);
-  color: white;
+  background: var(--win95-button-face);
+  color: var(--win95-text);
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
 }
 
 /* Input + copy button */
@@ -519,11 +517,12 @@ const onTzBlur = () => {
 .ts-converter__input {
   width: 100%;
   padding: 1.125rem 3rem 1.125rem 1.25rem;
-  background: transparent;
+  background: var(--win95-surface);
   border: none;
-  color: var(--fg);
+  color: var(--win95-text);
   font-size: 1.125rem;
   outline: none;
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
 }
 
 .ts-converter__input--mono {
@@ -531,7 +530,7 @@ const onTzBlur = () => {
 }
 
 .ts-converter__input::placeholder {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   opacity: 0.45;
 }
 
@@ -539,7 +538,7 @@ const onTzBlur = () => {
   position: absolute;
   right: 0.5rem;
   padding: 0.375rem 0.5rem;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 /* Arrow divider */
@@ -548,7 +547,7 @@ const onTzBlur = () => {
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   opacity: 0.5;
 }
 
@@ -565,9 +564,10 @@ const onTzBlur = () => {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.625rem 1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: var(--win95-button-face);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border-radius: 0;
   flex: 1;
   min-width: 120px;
 }
@@ -577,12 +577,12 @@ const onTzBlur = () => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
 }
 
 .ts-converter__stat-value {
   font-size: 0.9375rem;
-  color: var(--fg);
+  color: var(--win95-text);
   font-weight: 500;
 }
 
@@ -601,90 +601,6 @@ const onTzBlur = () => {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-/* ── Button Styles ────────────────────────────────────────────────────────── */
-button {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.125rem;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface-strong);
-  color: var(--fg);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(109, 123, 255, 0.1) 0%, rgba(74, 92, 255, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-button:hover:not(:disabled)::before {
-  opacity: 1;
-}
-
-button:hover:not(:disabled) {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(109, 123, 255, 0.15);
-}
-
-button:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-button.btn-primary {
-  background: linear-gradient(135deg, #6d7bff 0%, #5a67e8 100%);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 2px 8px rgba(109, 123, 255, 0.25);
-}
-
-button.btn-primary::before {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-}
-
-button.btn-primary:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(109, 123, 255, 0.35);
-  transform: translateY(-2px);
-}
-
-button.btn-secondary {
-  background: var(--surface-strong);
-  backdrop-filter: blur(8px);
-}
-
-button.btn-ghost {
-  background: transparent;
-  border-color: transparent;
-}
-
-button.btn-ghost:hover:not(:disabled) {
-  background: var(--surface);
-  border-color: var(--border);
-}
-
-button svg {
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */

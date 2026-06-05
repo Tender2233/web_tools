@@ -184,20 +184,19 @@ const handleToggle = () => {
   height: 1rem;
   padding: 0;
   border: none;
-  background: transparent;
-  color: var(--muted);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  background: var(--win95-button-face);
+  color: var(--win95-text);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 3px;
-  transition: all 0.15s ease;
   flex-shrink: 0;
 }
 
-.json-node__toggle:hover {
-  background: var(--surface-strong);
-  color: var(--accent);
+.json-node__toggle:active {
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
 }
 
 .json-node__spacer {
@@ -207,7 +206,7 @@ const handleToggle = () => {
 }
 
 .json-node__key {
-  color: #8b5cf6;
+  color: var(--syn-key);
   font-weight: 500;
   user-select: text;
 }
@@ -220,20 +219,20 @@ const handleToggle = () => {
 }
 
 .json-node__bracket-symbol {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   font-weight: 600;
   user-select: text;
 }
 
 .json-node__preview {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   font-style: italic;
   opacity: 0.7;
   user-select: text;
 }
 
 .json-node__count {
-  color: var(--muted);
+  color: var(--win95-text-disabled);
   font-size: 0.75rem;
   opacity: 0.6;
   user-select: none;
@@ -245,23 +244,23 @@ const handleToggle = () => {
 }
 
 .json-node__value--string {
-  color: #10b981;
+  color: var(--syn-string);
   user-select: text;
 }
 
 .json-node__value--number {
-  color: #3b82f6;
+  color: var(--syn-number);
   user-select: text;
 }
 
 .json-node__value--boolean {
-  color: #f59e0b;
+  color: var(--syn-boolean);
   font-weight: 500;
   user-select: text;
 }
 
 .json-node__value--null {
-  color: #ef4444;
+  color: var(--syn-null);
   font-style: italic;
   user-select: text;
 }

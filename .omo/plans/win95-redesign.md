@@ -559,7 +559,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `refactor: remove dark/light theme toggle from useAppShell`
   - Files: `app/composables/useAppShell.ts`
 
-- [ ] 5. 重设计 `app.vue` Shell + 新增 Win95 状态栏
+- [x] 5. 重设计 `app.vue` Shell + 新增 Win95 状态栏
 
   **What to do**:
   - 编辑 `app/app.vue`
@@ -654,7 +654,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign app shell to Win95 layout with status bar`
   - Files: `app/app.vue`
 
-- [ ] 6. 重设计 `json-formatter` 组件为 Win95 风格
+- [x] 6. 重设计 `json-formatter` 组件为 Win95 风格
 
   **What to do**:
   - **编辑 `json-formatter.vue`**:
@@ -741,7 +741,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign json-formatter to Win95 aesthetic`
   - Files: `app/components/tools/json-formatter.vue`, `app/components/tools/json-formatter.style.css`
 
-- [ ] 7. 重设计 `base64-encoder` 组件为 Win95 风格
+- [x] 7. 重设计 `base64-encoder` 组件为 Win95 风格
 
   **What to do**:
   - 编辑 `app/components/tools/base64-encoder.vue`
@@ -822,7 +822,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign base64-encoder to Win95 aesthetic`
   - Files: `app/components/tools/base64-encoder.vue`
 
-- [ ] 8. 重设计 `timestamp-converter` 组件为 Win95 风格
+- [x] 8. 重设计 `timestamp-converter` 组件为 Win95 风格
 
   **What to do**:
   - 编辑 `app/components/tools/timestamp-converter.vue`
@@ -907,7 +907,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign timestamp-converter to Win95 aesthetic`
   - Files: `app/components/tools/timestamp-converter.vue`
 
-- [ ] 9. 重设计 `json-tree-view` + `json-node` 为 Win95 风格
+- [x] 9. 重设计 `json-tree-view` + `json-node` 为 Win95 风格
 
   **What to do**:
   - **编辑 `json-tree-view.vue`**（第 121-129 行样式块）:
@@ -987,7 +987,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign json-tree-view and json-node to Win95 aesthetic with CSS variables`
   - Files: `app/components/tools/json-tree-view.vue`, `app/components/tools/json-node.vue`
 
-- [ ] 10. 重设计 `tool-placeholder` 组件为 Win95 风格
+- [x] 10. 重设计 `tool-placeholder` 组件为 Win95 风格
 
   **What to do**:
   - 编辑 `app/components/tools/tool-placeholder.vue`

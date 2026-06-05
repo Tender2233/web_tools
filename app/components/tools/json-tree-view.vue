@@ -124,6 +124,9 @@ defineExpose({
   font-size: 0.875rem;
   line-height: 1.6;
   user-select: text;
-  color: var(--fg);
+  color: var(--win95-text);
+  background: var(--win95-surface);
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  padding: 0.25rem;
 }
 </style>

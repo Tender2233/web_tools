@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :data-theme="theme">
+  <div class="page">
     <div class="shell">
       <header class="topbar" aria-label="工具切换与主题设置">
         <div class="brand-chip">Web Tools</div>
@@ -18,13 +18,6 @@
             {{ tool.label }}
           </button>
         </nav>
-
-        <button class="toggle" type="button" @click="toggleTheme" aria-label="切换主题">
-          <span class="toggle__icon" aria-hidden="true">
-            <span v-if="theme === 'dark'">☀️</span>
-            <span v-else>🌙</span>
-          </span>
-        </button>
       </header>
 
       <section class="workspace">
@@ -39,12 +32,17 @@
           </div>
         </div>
       </section>
+
+      <footer class="statusbar">
+        <span class="statusbar__tool">{{ activeToolMeta?.label ?? 'Web Tools' }}</span>
+        <span class="statusbar__status">就绪</span>
+      </footer>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const { activeComponent, activeTool, activeToolProps, selectTool, theme, tools, toggleTheme } = useAppShell()
+const { activeComponent, activeTool, activeToolMeta, activeToolProps, selectTool, tools } = useAppShell()
 </script>
 
 <style scoped src="./app.style.css"></style>

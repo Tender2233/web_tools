@@ -1,18 +1,103 @@
-:global(body) {
-  margin: 0;
-  font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: #05060b;
+/* ==========================================================================
+   Win95 Design System — Global Styles
+   Zero glassmorphism. Zero gradients. Pure classic.
+   ========================================================================== */
+
+/* ── Part A: CSS Variables ─────────────────────────────────────────────── */
+:root {
+  /* Win95 classic palette */
+  --win95-bg: #c0c0c0;
+  --win95-surface: #ffffff;
+  --win95-button-face: #c0c0c0;
+  --win95-button-highlight: #ffffff;
+  --win95-button-shadow: #808080;
+  --win95-button-dark-shadow: #000000;
+  --win95-title-bar: #000080;
+  --win95-title-text: #ffffff;
+  --win95-border-dark: #808080;
+  --win95-border-light: #ffffff;
+  --win95-text: #000000;
+  --win95-text-disabled: #808080;
+
+  /* Syntax highlighting tokens */
+  --syn-key: #800080;
+  --syn-string: #008000;
+  --syn-number: #0000ff;
+  --syn-boolean: #808000;
+  --syn-null: #808080;
+
+  /* Functional variables */
+  --win95-error-bg: #ffffff;
+  --win95-error-border: #ff0000;
+  --win95-error-text: #ff0000;
 }
 
+/* ── Part B: Global body reset ─────────────────────────────────────────── */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--win95-bg);
+  color: var(--win95-text);
+}
+
+/* ── Part C: Shared button classes ─────────────────────────────────────── */
+/* Win95 3D raised buttons using outline (no layout shift) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  color: var(--win95-text);
+  background: var(--win95-button-face);
+  border: none;
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:active:not(:disabled) {
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+}
+
+.btn:disabled {
+  color: var(--win95-text-disabled);
+  text-shadow: 1px 1px 0 var(--win95-button-highlight);
+}
+
+.btn:focus-visible {
+  outline: 2px dotted var(--win95-text);
+  outline-offset: 1px;
+}
+
+.btn-primary {
+  font-weight: bold;
+  outline-width: 3px;
+}
+
+.btn-secondary {}
+
+.btn-ghost {
+  background: transparent;
+  outline: 1px solid transparent;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  background: var(--win95-button-face);
+}
+
+/* ── Part D: Page layout ───────────────────────────────────────────────── */
 .page {
-  height: 100vh;
-  padding: clamp(1.2rem, 2.8vw, 3rem);
+  min-height: 100vh;
+  padding: 0.5rem;
   box-sizing: border-box;
-  color: var(--fg);
-  background: radial-gradient(circle at top, rgba(98, 108, 255, 0.18), transparent 45%),
-    radial-gradient(circle at 20% 20%, rgba(0, 172, 193, 0.2), transparent 35%),
-    var(--bg);
-  transition: background 0.3s ease, color 0.3s ease;
+  background: var(--win95-bg);
+  color: var(--win95-text);
   overflow: hidden;
 }
 
@@ -21,118 +106,79 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  height: 100%;
+  gap: 0.25rem;
+  height: calc(100vh - 1rem);
 }
 
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--win95-button-face);
+  border: none;
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
 }
 
 .brand-chip {
-  padding: 0.4rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--fg);
+  letter-spacing: 0.02em;
+  color: var(--win95-title-text);
+  background: var(--win95-title-bar);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
   white-space: nowrap;
 }
 
 .tool-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   flex: 1;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .tool-btn {
-  border: 1px solid transparent;
-  background: transparent;
-  border-radius: 10px;
-  padding: 0.5rem 1.2rem;
+  border: none;
+  background: var(--win95-button-face);
+  outline: 2px solid;
+  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  padding: 0.25rem 0.75rem;
   cursor: pointer;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--win95-text);
+  font-family: inherit;
+  font-size: 0.8125rem;
   font-weight: 500;
-  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .tool-btn:hover {
-  color: var(--fg);
-  background: var(--surface-strong);
+  background: var(--win95-button-face);
 }
 
 .tool-btn[aria-selected='true'] {
-  color: var(--accent);
-  background: rgba(109, 123, 255, 0.12);
-  border-color: var(--accent);
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  background: var(--win95-surface);
   font-weight: 600;
-}
-
-.toggle {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface-strong);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
-}
-
-.toggle:hover {
-  transform: scale(1.05);
-}
-
-.toggle__icon {
-  font-size: 1.1rem;
 }
 
 .workspace {
   flex: 1;
   display: flex;
+  flex-direction: column;
   min-height: 0;
-}
-
-.page[data-theme='dark'] {
-  --bg: #04060d;
-  --fg: #f5f6fb;
-  --muted: rgba(245, 246, 251, 0.55);
-  --surface: rgba(255, 255, 255, 0.04);
-  --surface-strong: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.1);
-  --accent: #6d7bff;
-  --shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
-}
-
-.page[data-theme='light'] {
-  --bg: #f8f9ff;
-  --fg: #0b0d18;
-  --muted: rgba(11, 13, 24, 0.5);
-  --surface: rgba(255, 255, 255, 0.85);
-  --surface-strong: rgba(255, 255, 255, 0.95);
-  --border: rgba(11, 13, 24, 0.08);
-  --accent: #4a5cff;
-  --shadow: 0 20px 60px rgba(25, 33, 86, 0.18);
+  gap: 0.25rem;
 }
 
 .surface {
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--surface);
-  padding: clamp(1.2rem, 2vw, 2rem);
-  box-shadow: var(--shadow);
+  outline: 2px solid;
+  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  background: var(--win95-surface);
+  padding: 0.5rem;
   flex: 1;
   min-height: 0;
   display: flex;
@@ -148,18 +194,46 @@
   min-height: 40vh;
   display: grid;
   place-items: center;
-  color: var(--muted);
+  color: var(--win95-text-disabled);
 }
 
+/* ── Part E: Status bar ────────────────────────────────────────────────── */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  background: var(--win95-button-face);
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.statusbar__tool {
+  font-weight: 500;
+}
+
+.statusbar__status {
+  padding: 0 0.25rem;
+  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+}
+
+/* ── Part F: Global animations ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Responsive media queries ──────────────────────────────────────────── */
 @media (max-width: 720px) {
   .page {
-    padding: 1rem 0.8rem 1.5rem;
+    padding: 0.25rem;
   }
 
   .topbar {
     flex-direction: column;
-    gap: 0.8rem;
-    padding: 0.8rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
 
   .tool-nav {
@@ -167,16 +241,15 @@
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding: 0.2rem 0;
+    padding: 0.125rem 0;
   }
 
   .tool-btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
   }
 
   .surface {
     min-height: auto;
-    border-radius: 16px;
   }
 }

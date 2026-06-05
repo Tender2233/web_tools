@@ -41,7 +41,6 @@ const tools: ToolMeta[] = [
 
 export const useAppShell = () => {
   const activeTool = useState<ToolId>('active-tool', () => 'json')
-  const theme = useState<'dark' | 'light'>('web-tools-theme', () => 'dark')
 
   const toolComponents = {
     json: defineAsyncComponent(() => import('~/components/tools/json-formatter.vue')),
@@ -71,39 +70,12 @@ export const useAppShell = () => {
     }
   })
 
-  const toggleTheme = () => {
-    theme.value = theme.value === 'dark' ? 'light' : 'dark'
-  }
-
-  onMounted(() => {
-    if (!import.meta.client) {
-      return
-    }
-    const stored = window.localStorage.getItem('web-tools-theme')
-    if (stored === 'light' || stored === 'dark') {
-      theme.value = stored
-    } else {
-      window.localStorage.setItem('web-tools-theme', theme.value)
-    }
-  })
-
-  watch(
-    () => theme.value,
-    value => {
-      if (!import.meta.client) {
-        return
-      }
-      window.localStorage.setItem('web-tools-theme', value)
-    }
-  )
-
   return {
     activeComponent,
     activeTool,
+    activeToolMeta,
     activeToolProps,
     selectTool,
-    theme,
-    tools,
-    toggleTheme
+    tools
   }
 }

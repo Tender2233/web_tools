@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JsonTreeView > matches snapshot with simple data 1`] = `
+"<div data-v-1eaa958c="" class="json-tree">
+  <div data-v-0d648cd7="" data-v-1eaa958c="" class="json-node" style="padding-left: 0rem;">
+    <div data-v-0d648cd7="" class="json-node__line" data-json-path="root" data-json-value="{&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:30}">
+      <!-- Toggle button for objects/arrays --><button data-v-0d648cd7="" type="button" class="json-node__toggle" aria-label="折叠"><svg data-v-0d648cd7="" width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+          <path data-v-0d648cd7="" d="M1 3 L5 7 L9 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+        </svg></button><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__bracket"><span data-v-0d648cd7="" class="json-node__bracket-symbol">{</span>
+      <!--v-if-->
+      <!--v-if--><span data-v-0d648cd7="" class="json-node__count">2 keys</span></span>
+    </div><!-- Children (when expanded) -->
+    <div data-v-0d648cd7="" class="json-node" style="padding-left: 1.25rem;">
+      <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.name" data-json-value="&quot;Alice&quot;">
+        <!-- Toggle button for objects/arrays --><span data-v-0d648cd7="" class="json-node__spacer"></span><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">name:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__value--string">"Alice"</span>
+      </div><!-- Children (when expanded) -->
+      <!--v-if-->
+    </div>
+    <div data-v-0d648cd7="" class="json-node" style="padding-left: 1.25rem;">
+      <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.age" data-json-value="30">
+        <!-- Toggle button for objects/arrays --><span data-v-0d648cd7="" class="json-node__spacer"></span><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">age:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__value--number">30</span>
+      </div><!-- Children (when expanded) -->
+      <!--v-if-->
+    </div>
+    <div data-v-0d648cd7="" class="json-node__line" style="padding-left: 0rem;"><span data-v-0d648cd7="" class="json-node__spacer"></span><span data-v-0d648cd7="" class="json-node__bracket-symbol">}</span></div>
+  </div>
+</div>"
+`;

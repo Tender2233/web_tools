@@ -1044,7 +1044,7 @@ Wave FINAL (After ALL tasks — 4 并行审查):
   - Message: `style: redesign tool-placeholder to Win95 aesthetic`
   - Files: `app/components/tools/tool-placeholder.vue`
 
-- [ ] 11. 编写 7 个组件快照测试 + 更新全局验证
+- [x] 11. 编写 7 个组件快照测试 + 更新全局验证
 
   **What to do**:
   - 为每个组件创建快照测试文件（除 tool-placeholder 已由 Task 1 创建外）:

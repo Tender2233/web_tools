@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JsonNode > matches snapshot for object value 1`] = `
+"<div data-v-0d648cd7="" class="json-node" style="padding-left: 1.25rem;">
+  <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.point" data-json-value="{&quot;x&quot;:1,&quot;y&quot;:2}">
+    <!-- Toggle button for objects/arrays --><button data-v-0d648cd7="" type="button" class="json-node__toggle" aria-label="折叠"><svg data-v-0d648cd7="" width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+        <path data-v-0d648cd7="" d="M1 3 L5 7 L9 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+      </svg></button><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">point:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__bracket"><span data-v-0d648cd7="" class="json-node__bracket-symbol">{</span>
+    <!--v-if-->
+    <!--v-if--><span data-v-0d648cd7="" class="json-node__count">2 keys</span></span>
+  </div><!-- Children (when expanded) -->
+  <div data-v-0d648cd7="" class="json-node" style="padding-left: 2.5rem;">
+    <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.point.x" data-json-value="1">
+      <!-- Toggle button for objects/arrays --><span data-v-0d648cd7="" class="json-node__spacer"></span><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">x:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__value--number">1</span>
+    </div><!-- Children (when expanded) -->
+    <!--v-if-->
+  </div>
+  <div data-v-0d648cd7="" class="json-node" style="padding-left: 2.5rem;">
+    <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.point.y" data-json-value="2">
+      <!-- Toggle button for objects/arrays --><span data-v-0d648cd7="" class="json-node__spacer"></span><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">y:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__value--number">2</span>
+    </div><!-- Children (when expanded) -->
+    <!--v-if-->
+  </div>
+  <div data-v-0d648cd7="" class="json-node__line" style="padding-left: 1.25rem;"><span data-v-0d648cd7="" class="json-node__spacer"></span><span data-v-0d648cd7="" class="json-node__bracket-symbol">}</span></div>
+</div>"
+`;
+
+exports[`JsonNode > matches snapshot for string value 1`] = `
+"<div data-v-0d648cd7="" class="json-node" style="padding-left: 1.25rem;">
+  <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.greeting" data-json-value="&quot;hello&quot;">
+    <!-- Toggle button for objects/arrays --><span data-v-0d648cd7="" class="json-node__spacer"></span><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">greeting:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__value--string">"hello"</span>
+  </div><!-- Children (when expanded) -->
+  <!--v-if-->
+</div>"
+`;

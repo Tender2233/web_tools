@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > matches snapshot 1`] = `
+"<div data-v-8ff0109a="" class="page">
+  <div data-v-8ff0109a="" class="shell">
+    <header data-v-8ff0109a="" class="topbar" aria-label="工具切换与主题设置">
+      <div data-v-8ff0109a="" class="brand-chip">Web Tools</div>
+      <nav data-v-8ff0109a="" class="tool-nav" role="tablist"><button data-v-8ff0109a="" class="tool-btn" type="button" role="tab" aria-selected="true" title="格式化 / 压缩并校验 JSON">JSON 格式化</button><button data-v-8ff0109a="" class="tool-btn" type="button" role="tab" aria-selected="false" title="UTF-8 安全的编码与解码">Base64 编解码</button><button data-v-8ff0109a="" class="tool-btn" type="button" role="tab" aria-selected="false" title="Convert between Unix timestamp and formatted date/time">Timestamp</button><button data-v-8ff0109a="" class="tool-btn" type="button" role="tab" aria-selected="false" title="生成十六进制与 Base64 摘要">SHA-256 工具</button></nav>
+    </header>
+    <section data-v-8ff0109a="" class="workspace">
+      <div data-v-8ff0109a="" class="surface">
+        <div data-v-8ff0109a="" class="surface__content">
+          <div data-v-8ff0109a="" class="suspense-stub">
+            <!---->
+            <div data-v-8ff0109a="" class="loading">正在唤醒工具...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer data-v-8ff0109a="" class="statusbar"><span data-v-8ff0109a="" class="statusbar__tool">JSON 格式化</span><span data-v-8ff0109a="" class="statusbar__status">就绪</span></footer>
+  </div>
+</div>"
+`;

@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TimestampConverter > matches snapshot 1`] = `
+"<div data-v-23d70ac1="" class="ts-converter">
+  <!-- ── Timezone bar ───────────────────────────────────────────────── -->
+  <div data-v-23d70ac1="" class="ts-converter__tz-bar">
+    <div data-v-23d70ac1="" class="ts-converter__tz-label"><svg data-v-23d70ac1="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+        <path data-v-23d70ac1="" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+      </svg> Timezone </div>
+    <div data-v-23d70ac1="" class="ts-converter__tz-selector">
+      <div data-v-23d70ac1="" class="ts-converter__tz-input-wrap"><svg data-v-23d70ac1="" class="ts-converter__tz-search-icon" width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+          <path data-v-23d70ac1="" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.242 1.656a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"></path>
+        </svg><input data-v-23d70ac1="" class="ts-converter__tz-search" placeholder="Asia/Shanghai"></div>
+      <div data-v-23d70ac1="" class="teleport-stub" to="body"></div>
+    </div>
+  </div><!-- ── Live "now" banner ──────────────────────────────────────────── -->
+  <div data-v-23d70ac1="" class="ts-converter__now-bar"><span data-v-23d70ac1="" class="ts-converter__now-label">Current time</span><span data-v-23d70ac1="" class="ts-converter__now-ts">1705311000</span><span data-v-23d70ac1="" class="ts-converter__now-sep">·</span><span data-v-23d70ac1="" class="ts-converter__now-dt">2024-01-15 17:30:00</span><button data-v-23d70ac1="" class="btn btn-primary ts-converter__use-now"><svg data-v-23d70ac1="" width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+        <path data-v-23d70ac1="" d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"></path>
+        <path data-v-23d70ac1="" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"></path>
+      </svg> Use Now </button></div><!-- ── Error banner ───────────────────────────────────────────────── -->
+  <!--v-if-->
+  <!-- ── Main conversion panels ─────────────────────────────────────── -->
+  <div data-v-23d70ac1="" class="ts-converter__panels">
+    <!-- Timestamp panel -->
+    <div data-v-23d70ac1="" class="ts-converter__panel">
+      <div data-v-23d70ac1="" class="ts-converter__panel-header"><span data-v-23d70ac1="" class="ts-converter__panel-title">Unix Timestamp</span><!-- sec / ms toggle -->
+        <div data-v-23d70ac1="" class="ts-converter__unit-toggle"><button data-v-23d70ac1="" class="ts-converter__unit-btn is-active">s</button><button data-v-23d70ac1="" class="ts-converter__unit-btn">ms</button></div>
+      </div>
+      <div data-v-23d70ac1="" class="ts-converter__input-wrap"><input data-v-23d70ac1="" class="ts-converter__input ts-converter__input--mono" placeholder="1700000000" inputmode="numeric" spellcheck="false"><button data-v-23d70ac1="" class="ts-converter__copy-btn btn btn-ghost" disabled="" title="Copy timestamp"><svg data-v-23d70ac1="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path data-v-23d70ac1="" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+            <path data-v-23d70ac1="" d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+          </svg></button></div>
+    </div><!-- Arrow divider -->
+    <div data-v-23d70ac1="" class="ts-converter__arrow"><svg data-v-23d70ac1="" width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+        <path data-v-23d70ac1="" fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+      </svg><svg data-v-23d70ac1="" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" style="transform: rotate(180deg);">
+        <path data-v-23d70ac1="" fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
+      </svg></div><!-- Datetime panel -->
+    <div data-v-23d70ac1="" class="ts-converter__panel">
+      <div data-v-23d70ac1="" class="ts-converter__panel-header"><span data-v-23d70ac1="" class="ts-converter__panel-title">Date / Time</span><span data-v-23d70ac1="" class="ts-converter__panel-hint">yyyy-MM-dd HH:mm:ss</span></div>
+      <div data-v-23d70ac1="" class="ts-converter__input-wrap"><input data-v-23d70ac1="" class="ts-converter__input ts-converter__input--mono" placeholder="2024-01-15 09:30:00" spellcheck="false"><button data-v-23d70ac1="" class="ts-converter__copy-btn btn btn-ghost" disabled="" title="Copy datetime"><svg data-v-23d70ac1="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+            <path data-v-23d70ac1="" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+            <path data-v-23d70ac1="" d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+          </svg></button></div>
+    </div>
+  </div><!-- ── Stats row ──────────────────────────────────────────────────── -->
+  <!--v-if-->
+  <!-- ── Actions ────────────────────────────────────────────────────── -->
+  <div data-v-23d70ac1="" class="ts-converter__actions"><button data-v-23d70ac1="" class="btn btn-ghost" disabled=""><svg data-v-23d70ac1="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+        <path data-v-23d70ac1="" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
+      </svg> Clear </button></div>
+</div>"
+`;

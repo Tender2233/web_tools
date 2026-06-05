@@ -143,8 +143,8 @@ const {
   display: flex;
   flex-direction: column;
   border: none;
-  outline: 2px solid;
-  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  border: 2px solid;
+  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
   border-radius: 0;
   background: var(--win95-surface);
   box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
@@ -179,8 +179,9 @@ const {
 .base64-encoder__stats span {
   padding: 0.25rem 0.5rem;
   background: var(--win95-button-face);
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
   border-radius: 0;
   white-space: nowrap;
 }

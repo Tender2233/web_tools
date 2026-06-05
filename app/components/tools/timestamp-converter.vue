@@ -263,8 +263,9 @@ const onTzBlur = () => {
   gap: 1rem;
   padding: 0.875rem 1.25rem;
   background: var(--win95-button-face);
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
   border-radius: 0;
 }
 
@@ -326,8 +327,8 @@ const onTzBlur = () => {
   overflow-y: auto;
   background: var(--win95-surface);
   border: none;
-  outline: 2px solid;
-  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  border: 2px solid;
+  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
   border-radius: 0;
   box-shadow: none;
   z-index: 9999;
@@ -381,8 +382,9 @@ const onTzBlur = () => {
   gap: 0.75rem;
   padding: 0.75rem 1.25rem;
   background: var(--win95-button-face);
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
   border-radius: 0;
   font-size: 0.875rem;
   flex-wrap: wrap;
@@ -439,8 +441,8 @@ const onTzBlur = () => {
 
 .ts-converter__panel {
   background: var(--win95-button-face);
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
   border-radius: 0;
   overflow: hidden;
   box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
@@ -492,8 +494,9 @@ const onTzBlur = () => {
   background: var(--win95-button-face);
   color: var(--win95-text);
   cursor: pointer;
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
 }
 
 .ts-converter__unit-btn:hover:not(.is-active) {
@@ -503,7 +506,7 @@ const onTzBlur = () => {
 .ts-converter__unit-btn.is-active {
   background: var(--win95-button-face);
   color: var(--win95-text);
-  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
   box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
 }
 
@@ -565,8 +568,9 @@ const onTzBlur = () => {
   gap: 0.25rem;
   padding: 0.625rem 1rem;
   background: var(--win95-button-face);
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
   border-radius: 0;
   flex: 1;
   min-width: 120px;

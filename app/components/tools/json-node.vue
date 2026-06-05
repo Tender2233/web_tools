@@ -184,8 +184,9 @@ const handleToggle = () => {
   height: 1rem;
   padding: 0;
   border: none;
-  outline: 2px solid;
-  outline-color: var(--win95-button-highlight) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-highlight);
+  border: 2px solid;
+  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
+  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
   background: var(--win95-button-face);
   color: var(--win95-text);
   cursor: pointer;
@@ -196,7 +197,7 @@ const handleToggle = () => {
 }
 
 .json-node__toggle:active {
-  outline-color: var(--win95-button-dark-shadow) var(--win95-button-highlight) var(--win95-button-highlight) var(--win95-button-dark-shadow);
+  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
 }
 
 .json-node__spacer {

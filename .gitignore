@@ -17,8 +17,12 @@ logs
 .DS_Store
 .fleet
 .idea
-
+.omo/
 # Local env files
 .env
 .env.*
 !.env.example
+
+# playwright test outputs
+.playwright-report
+.playwright-mcp

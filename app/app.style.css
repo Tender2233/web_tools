@@ -1,201 +1,230 @@
-/* ==========================================================================
-   Win95 Design System — Global Styles
-   True Win95 3D beveled borders via border-color + box-shadow.
-   ========================================================================== */
+/* ═══════════════════════════════════════════════════════════════════════════
+   98.css-style Win95 Design System v2
+   Double-layer box-shadow bevels • Teal desktop • MS Sans Serif 11px
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── Part A: CSS Variables ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("/fonts/ms_sans_serif.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MS Sans Serif";
+  src: url("/fonts/ms_sans_serif_bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ── CSS Variables: 98.css bevel system + React95 palette ──────────────── */
 :root {
-  /* Win95 Classic Palette */
-  --win95-bg: #c0c0c0;
-  --win95-surface: #ffffff;
-  --win95-button-face: #c0c0c0;
-  --win95-button-highlight: #ffffff;
-  --win95-button-light: #dfdfdf;
-  --win95-button-shadow: #808080;
-  --win95-button-dark-shadow: #000000;
-  --win95-title-bar: #000080;
-  --win95-title-text: #ffffff;
-  --win95-border-dark: #808080;
-  --win95-border-light: #ffffff;
-  --win95-text: #000000;
-  --win95-text-disabled: #808080;
+  /* Two-layer bevel system (98.css pattern) */
+  --border-raised-outer: inset -1px -1px var(--border-darkest), inset 1px 1px var(--border-lightest);
+  --border-raised-inner: inset -2px -2px var(--border-dark), inset 2px 2px var(--material);
+  --border-sunken-outer: inset -1px -1px var(--border-lightest), inset 1px 1px var(--border-darkest);
+  --border-sunken-inner: inset -2px -2px var(--material), inset 2px 2px var(--border-dark);
+  --border-window-outer: inset -1px -1px var(--border-darkest), inset 1px 1px var(--material);
+  --border-window-inner: inset -2px -2px var(--border-dark), inset 2px 2px var(--border-lightest);
+  --border-field: inset -1px -1px var(--border-lightest), inset 1px 1px var(--border-dark),
+    inset -2px -2px var(--material), inset 2px 2px var(--border-darkest);
 
-  /* Syntax highlighting tokens */
+  /* React95-inspired full color palette */
+  --desktop: #008080;
+  --surface: #c0c0c0;
+  --material: #c6c6c6;
+  --canvas: #ffffff;
+  --canvas-text: #0a0a0a;
+  --border-darkest: #0a0a0a;
+  --border-dark: #848584;
+  --border-light: #dfdfdf;
+  --border-lightest: #ffffff;
+  --header-bg: #000080;
+  --header-bg-light: #1084d0;
+  --header-text: #ffffff;
+  --header-inactive-bg: #7f787f;
+  --header-inactive-text: #c6c6c6;
+  --hover-bg: #000080;
+  --hover-text: #ffffff;
+  --link: #0000ff;
+  --focus: #000000;
+  --tooltip: #fefbcc;
+
+  /* Syntax highlighting */
   --syn-key: #800080;
   --syn-string: #008000;
   --syn-number: #0000ff;
   --syn-boolean: #808000;
   --syn-null: #808080;
 
-  /* Functional colors */
-  --win95-error-bg: #ffffff;
-  --win95-error-border: #ff0000;
-  --win95-error-text: #ff0000;
+  /* Spacing */
+  --element-spacing: 8px;
+  --grouped-element-spacing: 6px;
 }
 
-/* ── Part B: Global body reset ─────────────────────────────────────────── */
+/* ── Global body: teal desktop, MS Sans Serif 11px ────────────────────── */
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: var(--win95-bg);
-  color: var(--win95-text);
+  font-family: "MS Sans Serif", "Pixelated MS Sans Serif", Arial, sans-serif;
+  font-size: 11px;
+  background: var(--desktop);
+  color: var(--canvas-text);
+  -webkit-font-smoothing: none;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Part C: Shared button classes — TRUE Win95 3D beveled borders
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* Raised button (default) — bright top-left, dark bottom-right */
+/* ── Shared button: double-layer box-shadow bevel ──────────────────────── */
 .btn {
+  box-sizing: border-box;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 var(--canvas-text);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+  min-width: 75px;
+  min-height: 23px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  user-select: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  font-family: inherit;
-  font-size: 0.8125rem;
-  font-weight: normal;
-  color: var(--win95-text);
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight),
-               1px  1px 0 var(--win95-button-shadow);
-  cursor: pointer;
-  user-select: none;
+  gap: 4px;
 }
-
-/* Pressed (active) — reverse the bevel: dark top-left, bright bottom-right */
 .btn:active:not(:disabled) {
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-dark-shadow);
-  box-shadow:  1px  1px 0 var(--win95-button-highlight) inset,
-              -1px -1px 0 var(--win95-button-shadow) inset;
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  text-shadow: 1px 1px var(--canvas-text);
+  padding: 1px 11px 0 13px;
 }
-
-.btn:disabled {
-  color: var(--win95-text-disabled);
-  text-shadow: 1px 1px 0 var(--win95-button-highlight);
-  border-color: var(--win95-button-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-shadow);
-}
-
 .btn:focus-visible {
-  outline: 2px dotted var(--win95-text);
-  outline-offset: 2px;
+  outline: 1px dotted var(--focus);
+  outline-offset: -4px;
+}
+.btn:disabled {
+  text-shadow: 1px 1px 0 var(--border-lightest);
+  color: var(--border-dark);
 }
 
-/* Primary: bolder, dark border instead of shadow for emphasis */
 .btn-primary {
   font-weight: bold;
-  border-color: var(--win95-text) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-text);
+  box-shadow: inset -2px -2px var(--border-darkest), inset 1px 1px var(--border-darkest),
+    inset 2px 2px var(--border-lightest), inset -3px -3px var(--border-dark),
+    inset 3px 3px var(--material);
 }
 .btn-primary:active:not(:disabled) {
-  border-color: var(--win95-button-dark-shadow) var(--win95-text)
-                var(--win95-text) var(--win95-button-dark-shadow);
+  box-shadow: inset 2px 2px var(--border-darkest), inset -1px -1px var(--border-darkest),
+    inset -2px -2px var(--border-lightest), inset 3px 3px var(--border-dark),
+    inset -3px -3px var(--material);
 }
-
 .btn-secondary {}
-
 .btn-ghost {
   background: transparent;
-  border-color: transparent;
   box-shadow: none;
+  min-width: auto;
 }
 .btn-ghost:hover:not(:disabled) {
-  background: var(--win95-button-face);
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight),
-               1px  1px 0 var(--win95-button-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Part D: Page layout
-   ═══════════════════════════════════════════════════════════════════════════ */
+/* ── Form controls: 98.css field-border ────────────────────────────────── */
+textarea, input, select {
+  padding: 3px 4px;
+  border: none;
+  box-shadow: var(--border-field);
+  background: var(--border-lightest);
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 11px;
+  color: var(--canvas-text);
+}
+textarea:focus, input:focus, select:focus { outline: none; }
+textarea:disabled, input:disabled, textarea:read-only { background: var(--surface); }
+select {
+  appearance: none;
+  padding-right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M4 6h8l-4 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+}
 
+/* ── Page layout: teal desktop, window-style surface ──────────────────── */
 .page {
   min-height: 100vh;
-  padding: 0.5rem;
+  padding: 4px;
   box-sizing: border-box;
-  background: var(--win95-bg);
-  color: var(--win95-text);
+  background: var(--desktop);
+  color: var(--canvas-text);
   overflow: hidden;
 }
-
 .shell {
   max-width: 1600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  height: calc(100vh - 1rem);
+  gap: 2px;
+  height: calc(100vh - 8px);
 }
 
-/* Top bar — raised toolbar */
+/* Top bar: flat, sits directly on teal desktop */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight),
-               1px  1px 0 var(--win95-button-shadow);
+  gap: 4px;
+  padding: 2px 4px;
+  background: transparent;
 }
 
-/* Brand chip — navy blue title bar */
+/* Brand chip: gradient title bar */
 .brand-chip {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--win95-title-text);
-  background: var(--win95-title-bar);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 #4040c0, 1px 1px 0 var(--win95-button-shadow);
+  padding: 3px 6px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--header-text);
+  background: linear-gradient(90deg, var(--header-bg), var(--header-bg-light));
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 
 .tool-nav {
   display: flex;
-  gap: 0.125rem;
+  gap: 2px;
   flex: 1;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* Tool tab buttons — raised when deselected, sunken when selected */
 .tool-btn {
-  padding: 0.25rem 0.75rem;
   cursor: pointer;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   font-family: inherit;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 11px;
   white-space: nowrap;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow)
-                var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight),
-               1px  1px 0 var(--win95-button-shadow);
+  box-sizing: border-box;
+  border: none;
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+  padding: 1px 8px;
+  min-height: 21px;
+}
+.tool-btn:hover {
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
 
+/* Selected tab: sunken */
 .tool-btn[aria-selected='true'] {
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-dark-shadow);
-  box-shadow:  1px  1px 0 var(--win95-button-highlight) inset,
-              -1px -1px 0 var(--win95-button-shadow) inset;
-  background: var(--win95-surface);
-  font-weight: 600;
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  font-weight: bold;
+  padding: 2px 7px 0 9px;
+}
+
+.tool-btn:focus-visible {
+  outline: 1px dotted var(--focus);
+  outline-offset: -4px;
 }
 
 .workspace {
@@ -203,111 +232,58 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  gap: 0.25rem;
+  gap: 2px;
 }
 
-/* Sunken work surface */
+/* Window-style surface */
 .surface {
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-dark-shadow);
-  background: var(--win95-surface);
-  padding: 0.5rem;
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 4px;
   flex: 1;
   min-height: 0;
   display: flex;
 }
-
 .surface__content {
   width: 100%;
   max-height: 100%;
   overflow: hidden;
 }
-
 .loading {
   min-height: 40vh;
   display: grid;
   place-items: center;
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Part E: Status bar — sunken panel
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+/* ── Status bar: 98.css status-bar-field ───────────────────────────────── */
 .statusbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.125rem 0.5rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-dark-shadow);
-  font-size: 0.75rem;
-  flex-shrink: 0;
+  gap: 1px;
+  margin: 0 1px;
+}
+.statusbar__tool, .statusbar__status {
+  box-shadow: inset -1px -1px var(--material), inset 1px 1px var(--border-dark);
+  padding: 2px 3px;
+  margin: 0;
+  flex: 1;
+  font-size: 11px;
 }
 
-.statusbar__tool {
-  font-weight: 500;
-}
-
-.statusbar__status {
-  padding: 0 0.25rem;
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light)
-                var(--win95-button-light) var(--win95-button-dark-shadow);
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   Part F: Global animations
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+/* ── Animations ────────────────────────────────────────────────────────── */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Responsive
-   ═══════════════════════════════════════════════════════════════════════════ */
-
+/* ── Responsive ────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
-  .page {
-    padding: 0.25rem;
-  }
-
-  .topbar {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  .tool-nav {
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding: 0.125rem 0;
-  }
-
-  .tool-btn {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-  }
-
-  .surface {
-    min-height: auto;
-  }
+  .page { padding: 2px; }
+  .topbar { flex-direction: column; gap: 4px; padding: 4px; }
+  .tool-nav { width: 100%; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .surface { min-height: auto; }
 }

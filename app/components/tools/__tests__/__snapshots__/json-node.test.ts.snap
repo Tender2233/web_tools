@@ -3,9 +3,7 @@
 exports[`JsonNode > matches snapshot for object value 1`] = `
 "<div data-v-0d648cd7="" class="json-node" style="padding-left: 1.25rem;">
   <div data-v-0d648cd7="" class="json-node__line" data-json-path="root.point" data-json-value="{&quot;x&quot;:1,&quot;y&quot;:2}">
-    <!-- Toggle button for objects/arrays --><button data-v-0d648cd7="" type="button" class="json-node__toggle" aria-label="折叠"><svg data-v-0d648cd7="" width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-        <path data-v-0d648cd7="" d="M1 3 L5 7 L9 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
-      </svg></button><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">point:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__bracket"><span data-v-0d648cd7="" class="json-node__bracket-symbol">{</span>
+    <!-- Toggle button for objects/arrays --><button data-v-0d648cd7="" type="button" class="json-node__toggle" aria-label="折叠">−</button><!-- Key (for object properties) --><span data-v-0d648cd7="" class="json-node__key">point:</span><!-- Value preview --><span data-v-0d648cd7="" class="json-node__bracket"><span data-v-0d648cd7="" class="json-node__bracket-symbol">{</span>
     <!--v-if-->
     <!--v-if--><span data-v-0d648cd7="" class="json-node__count">2 keys</span></span>
   </div><!-- Children (when expanded) -->

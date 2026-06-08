@@ -48,6 +48,8 @@
   --link: #0000ff;
   --focus: #000000;
   --tooltip: #fefbcc;
+  --error-text: #e00000;
+  --error-bg: var(--canvas);
 
   /* Syntax highlighting */
   --syn-key: #800080;
@@ -117,7 +119,7 @@ body {
     inset -2px -2px var(--border-lightest), inset 3px 3px var(--border-dark),
     inset -3px -3px var(--material);
 }
-.btn-secondary {}
+
 .btn-ghost {
   background: transparent;
   box-shadow: none;

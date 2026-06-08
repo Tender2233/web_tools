@@ -119,10 +119,10 @@ const {
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  background: var(--canvas);
-  border: 2px solid red;
+  background: var(--error-bg);
+  border: 2px solid var(--error-text);
   border-radius: 0;
-  color: red;
+  color: var(--error-text);
   font-size: 11px;
   animation: slideDown 0.3s ease-out;
 }

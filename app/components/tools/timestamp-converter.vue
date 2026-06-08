@@ -418,10 +418,10 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  background: var(--border-lightest);
-  border: 2px solid #e00000;
+  background: var(--error-bg);
+  border: 2px solid var(--error-text);
   border-radius: 0;
-  color: #e00000;
+  color: var(--error-text);
   font-size: 0.9375rem;
   animation: slideDown 0.3s ease-out;
 }

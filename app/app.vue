@@ -45,5 +45,5 @@
 const { activeComponent, activeTool, activeToolMeta, activeToolProps, selectTool, tools } = useAppShell()
 </script>
 
-<style scoped src="./app.style.css"></style>
+<style src="./app.style.css"></style>
 

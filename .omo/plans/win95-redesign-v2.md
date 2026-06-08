@@ -386,7 +386,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: 98.css buttons, inputs, and teal desktop layout`
 
-- [ ] 4. 更新 `app.vue` Shell — 标题栏渐变 + teal 桌面
+- [x] 4. 更新 `app.vue` Shell — 标题栏渐变 + teal 桌面
 
   **What to do**:
   - 编辑 `app/app.vue` 模板：
@@ -427,7 +427,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: Win95 shell with gradient title bar and teal desktop`
 
-- [ ] 5. 重设计 `json-formatter` 组件为 98.css 风格
+- [x] 5. 重设计 `json-formatter` 组件为 98.css 风格
 
   **What to do**:
   - 编辑 `json-formatter.vue` — 按钮使用 `.btn` 类
@@ -464,7 +464,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: redesign json-formatter with 98.css patterns`
 
-- [ ] 6. 重设计 `base64-encoder` 为 98.css 风格
+- [x] 6. 重设计 `base64-encoder` 为 98.css 风格
 
   **What to do**: 同模式——field-border 输入框，双层 bevel 面板，`.btn` 按钮类。编辑 `base64-encoder.vue` 的 scoped 样式。
 
@@ -475,7 +475,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: redesign base64-encoder with 98.css patterns`
 
-- [ ] 7. 重设计 `timestamp-converter` 为 98.css 风格
+- [x] 7. 重设计 `timestamp-converter` 为 98.css 风格
 
   **What to do**: 同模式。特别注意 Teleported 下拉菜单的 `:global()` 样式使用 98.css 风格。
 
@@ -486,7 +486,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: redesign timestamp-converter with 98.css patterns`
 
-- [ ] 8. 重设计 `json-tree-view` + `json-node` 为 98.css 风格
+- [x] 8. 重设计 `json-tree-view` + `json-node` 为 98.css 风格
 
   **What to do**:
   - 编辑 `json-tree-view.vue` — 树形容器用 `box-shadow: var(--border-field)`（98.css tree-view 凹陷白底）
@@ -502,7 +502,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: redesign tree-view components with 98.css patterns`
 
-- [ ] 9. 重设计 `tool-placeholder` 为 98.css 风格
+- [x] 9. 重设计 `tool-placeholder` 为 98.css 风格
 
   **What to do**: 窗口风格面板 + 虚线边框保留 + 11px 字体
 
@@ -513,7 +513,7 @@ Wave FINAL (4 并行审查):
 
   **Commit**: `style: redesign tool-placeholder with 98.css patterns`
 
-- [ ] 10. 更新 7 个快照测试 + 全局验证
+- [x] 10. 更新 7 个快照测试 + 全局验证
 
   **What to do**:
   - 运行 `npm test -- --update` 更新所有快照
@@ -554,19 +554,19 @@ Wave FINAL (4 并行审查):
 
 > 4 review agents run in PARALLEL. ALL must APPROVE. Present consolidated results to user and get explicit "okay" before completing.
 
-- [ ] F1. **Plan Compliance Audit** — `oracle`
+- [x] F1. **Plan Compliance Audit** — `oracle`
   Verify: double-layer box-shadow buttons, teal desktop, MS Sans Serif font, title bar gradient, field-border inputs, status bar fields. Search for forbidden patterns. Check evidence files.
   Output: `Must Have [N/N] | Must NOT Have [N/N] | Tasks [N/N] | VERDICT: APPROVE/REJECT`
 
-- [ ] F2. **Code Quality Review** — `unspecified-high`
+- [x] F2. **Code Quality Review** — `unspecified-high`
   Run `npm run build` + `npm test`. Review for: old CSS variables, `outline` four-color attempts, AI slop, hardcoded colors.
   Output: `Build [PASS/FAIL] | Test [N/N] | Files [N clean/N issues] | VERDICT`
 
-- [ ] F3. **Real Manual QA** — `unspecified-high` + `playwright`
+- [x] F3. **Real Manual QA** — `unspecified-high` + `playwright`
   Execute all QA scenarios. Verify: teal desktop visible, title bar gradient, double-bevel buttons, MS Sans Serif rendering, all tools functional. Test 375px and 1440px.
   Output: `Scenarios [N/N] | Integration [N/N] | VERDICT`
 
-- [ ] F4. **Scope Fidelity Check** — `deep`
+- [x] F4. **Scope Fidelity Check** — `deep`
   Verify 1:1 compliance. Must Have/Must NOT Have. Cross-task contamination.
   Output: `Tasks [N/N] | Contamination [CLEAN/N] | Unaccounted [CLEAN/N] | VERDICT`
 

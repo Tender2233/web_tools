@@ -8,12 +8,7 @@
         class="json-node__toggle"
         @click="handleToggle"
         :aria-label="isExpanded ? '折叠' : '展开'"
-      >
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
-          <path v-if="isExpanded" d="M1 3 L5 7 L9 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <path v-else d="M3 1 L7 5 L3 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        </svg>
-      </button>
+      >{{ isExpanded ? '\u2212' : '+' }}</button>
       <span v-else class="json-node__spacer"></span>
 
       <!-- Key (for object properties) -->
@@ -180,16 +175,16 @@ const handleToggle = () => {
 }
 
 .json-node__toggle {
-  width: 1rem;
-  height: 1rem;
+  border: 1px solid var(--border-dark);
+  background: var(--canvas);
+  width: 11px;
+  height: 11px;
+  font-size: 9px;
+  line-height: 9px;
+  text-align: center;
   padding: 0;
-  border: none;
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
-  background: var(--win95-button-face);
-  color: var(--win95-text);
   cursor: pointer;
+  color: var(--canvas-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,12 +192,12 @@ const handleToggle = () => {
 }
 
 .json-node__toggle:active {
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
+  box-shadow: var(--border-sunken-outer);
 }
 
 .json-node__spacer {
-  width: 1rem;
-  height: 1rem;
+  width: 11px;
+  height: 11px;
   flex-shrink: 0;
 }
 
@@ -220,24 +215,24 @@ const handleToggle = () => {
 }
 
 .json-node__bracket-symbol {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   font-weight: 600;
   user-select: text;
 }
 
 .json-node__preview {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   font-style: italic;
   opacity: 0.7;
   user-select: text;
 }
 
 .json-node__count {
-  color: var(--win95-text-disabled);
-  font-size: 0.75rem;
+  color: var(--border-dark);
+  font-size: 9px;
   opacity: 0.6;
   user-select: none;
-  margin-left: 0.25rem;
+  margin-left: 4px;
 }
 
 .json-node__value {

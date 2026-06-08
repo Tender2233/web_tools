@@ -7,6 +7,8 @@
   animation: fadeIn 0.4s ease-out;
 }
 
+/* ── Toolbar: raised element ──────────────────────────────────────────── */
+
 .json-formatter__toolbar {
   display: flex;
   justify-content: space-between;
@@ -15,10 +17,8 @@
   flex-wrap: wrap;
   flex-shrink: 0;
   padding: 0.25rem 0.5rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
 
 .json-formatter__toolbar-group {
@@ -27,52 +27,53 @@
   gap: 0.375rem;
 }
 
+/* ── Indent control ───────────────────────────────────────────────────── */
+
 .json-formatter__indent-control {
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.75rem;
   font-weight: 500;
-  color: var(--win95-text);
+  color: var(--canvas-text);
 }
 
 .json-formatter__indent-control select {
   padding: 0.25rem 0.5rem;
-  background: var(--win95-surface);
-  color: var(--win95-text);
-  font-size: 0.75rem;
+  background: var(--border-lightest);
+  color: var(--canvas-text);
   font-weight: 500;
   cursor: pointer;
-  outline: none;
   border: none;
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  box-shadow: var(--border-field);
 }
 
 .json-formatter__indent-control select:focus {
-  outline: 2px dotted var(--win95-text);
+  outline: 1px dotted var(--focus);
   outline-offset: 1px;
 }
+
+/* ── Error banner: white bg + red border, no gradient ─────────────────── */
 
 .json-formatter__error {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  background: var(--win95-error-bg);
-  border: 2px solid var(--win95-error-border);
-  color: var(--win95-error-text);
+  background: var(--canvas);
+  border: 2px solid red;
+  color: red;
   font-size: 0.8125rem;
   line-height: 1.4;
   flex-shrink: 0;
   animation: slideDown 0.3s ease-out;
 }
 
-
-
 .json-formatter__error svg {
   flex-shrink: 0;
   margin-top: 2px;
 }
+
+/* ── Panes layout ─────────────────────────────────────────────────────── */
 
 .json-formatter__panes {
   display: grid;
@@ -90,75 +91,58 @@
   }
 }
 
+/* ── Pane: window-style ───────────────────────────────────────────────── */
+
 .json-formatter__pane {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   min-height: 0;
   overflow: hidden;
-  background: var(--win95-button-face);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
   padding: 0.5rem;
 }
 
 .json-formatter__pane:focus-within {
-  outline: 2px dotted var(--win95-text);
+  outline: 1px dotted var(--focus);
   outline-offset: -2px;
 }
+
+/* ── Pane header ──────────────────────────────────────────────────────── */
 
 .json-formatter__pane-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   flex-shrink: 0;
   flex-wrap: wrap;
 }
 
+/* ── View toggle: segmented btn group ─────────────────────────────────── */
+
 .json-formatter__view-toggle {
   display: flex;
   gap: 0;
-  background: var(--win95-button-face);
   padding: 0;
   border: none;
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
 }
 
-.json-formatter__view-toggle button {
+.json-formatter__view-toggle .btn {
+  min-width: auto;
   padding: 0.25rem 0.5rem;
-  border: none;
-  background: transparent;
-  color: var(--win95-text);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  border-radius: 0;
 }
 
-.json-formatter__view-toggle button::before {
-  display: none;
+.json-formatter__view-toggle .btn.active {
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
 }
 
-.json-formatter__view-toggle button:hover {
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
-}
-
-.json-formatter__view-toggle button.active {
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
-  color: var(--win95-text);
-}
+/* ── Output container ─────────────────────────────────────────────────── */
 
 .json-formatter__output-container {
   flex: 1;
@@ -183,15 +167,19 @@
   flex-shrink: 0;
 }
 
+/* ── Empty state ──────────────────────────────────────────────────────── */
+
 .json-formatter__empty {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   font-style: italic;
   font-size: 0.8125rem;
 }
+
+/* ── Stats: sunken chips ──────────────────────────────────────────────── */
 
 .json-formatter__stats {
   display: flex;
@@ -199,26 +187,28 @@
   font-size: 0.6875rem;
   font-weight: 500;
   text-transform: none;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   letter-spacing: 0;
 }
 
 .json-formatter__stats span {
   padding: 0.125rem 0.375rem;
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  background: var(--surface);
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
   white-space: nowrap;
 }
+
+/* ── Textarea: field-border ───────────────────────────────────────────── */
 
 .json-formatter__textarea {
   flex: 1;
   padding: 0.5rem;
   border: none;
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
-  color: var(--win95-text);
+  background: var(--border-lightest);
+  box-shadow: var(--border-field);
+  color: var(--canvas-text);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Cascadia Code', monospace;
-  font-size: 0.8125rem;
+  font-size: inherit;
   line-height: 1.5;
   resize: none;
   min-height: 0;
@@ -226,7 +216,7 @@
 }
 
 .json-formatter__textarea::placeholder {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
 }
 
 .json-formatter__textarea:focus {
@@ -237,32 +227,35 @@
   cursor: default;
 }
 
-/* Custom scrollbar */
+/* ── Custom scrollbar ─────────────────────────────────────────────────── */
+
 .json-formatter__textarea::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 .json-formatter__textarea::-webkit-scrollbar-track {
-  background: var(--win95-button-face);
+  background: var(--surface);
 }
 
 .json-formatter__textarea::-webkit-scrollbar-thumb {
-  background: var(--win95-button-shadow);
-  border: 1px solid var(--win95-button-highlight);
+  background: var(--border-dark);
+  border: 1px solid var(--border-lightest);
 }
 
 .json-formatter__textarea::-webkit-scrollbar-thumb:hover {
-  background: var(--win95-button-dark-shadow);
+  background: var(--border-darkest);
 }
+
+/* ── Tree container child ─────────────────────────────────────────────── */
 
 .json-formatter__tree-container > :last-child {
   flex: 1;
   min-height: 0;
   overflow: auto;
   padding: 0.5rem;
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  background: var(--border-lightest);
+  box-shadow: var(--border-field);
 }
 
 .json-formatter__tree-container > :last-child::-webkit-scrollbar {
@@ -271,17 +264,19 @@
 }
 
 .json-formatter__tree-container > :last-child::-webkit-scrollbar-track {
-  background: var(--win95-button-face);
+  background: var(--surface);
 }
 
 .json-formatter__tree-container > :last-child::-webkit-scrollbar-thumb {
-  background: var(--win95-button-shadow);
-  border: 1px solid var(--win95-button-highlight);
+  background: var(--border-dark);
+  border: 1px solid var(--border-lightest);
 }
 
 .json-formatter__tree-container > :last-child::-webkit-scrollbar-thumb:hover {
-  background: var(--win95-button-dark-shadow);
+  background: var(--border-darkest);
 }
+
+/* ── Actions row ──────────────────────────────────────────────────────── */
 
 .json-formatter__actions {
   display: flex;

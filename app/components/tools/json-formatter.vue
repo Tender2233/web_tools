@@ -50,6 +50,7 @@
           <div class="json-formatter__view-toggle">
             <button
               type="button"
+              class="btn btn-secondary"
               :class="{ active: viewMode === 'tree' }"
               @click="viewMode = 'tree'"
               title="树形视图"
@@ -60,6 +61,7 @@
             </button>
             <button
               type="button"
+              class="btn btn-secondary"
               :class="{ active: viewMode === 'text' }"
               @click="viewMode = 'text'"
               title="文本视图"

@@ -120,13 +120,12 @@ defineExpose({
 
 <style scoped>
 .json-tree {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Cascadia Code', monospace;
-  font-size: 0.875rem;
+  font-size: 11px;
   line-height: 1.6;
   user-select: text;
-  color: var(--win95-text);
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
-  padding: 0.25rem;
+  color: var(--canvas-text);
+  background: var(--border-lightest);
+  box-shadow: var(--border-field);
+  padding: 4px;
 }
 </style>

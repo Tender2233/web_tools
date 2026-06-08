@@ -113,22 +113,22 @@ const {
   flex-wrap: wrap;
 }
 
+/* Error: white bg + red border */
 .base64-encoder__error {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  background: var(--win95-error-bg);
-  border: 2px solid var(--win95-error-border);
+  background: var(--canvas);
+  border: 2px solid red;
   border-radius: 0;
-  color: var(--win95-error-text);
-  font-size: 0.9375rem;
+  color: red;
+  font-size: 11px;
   animation: slideDown 0.3s ease-out;
 }
 
 .base64-encoder__error svg {
   flex-shrink: 0;
-  opacity: 0.9;
 }
 
 .base64-encoder__panes {
@@ -139,15 +139,14 @@ const {
   min-height: 0;
 }
 
+/* Sunken panel: window-style box-shadow */
 .base64-encoder__pane {
   display: flex;
   flex-direction: column;
   border: none;
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
   border-radius: 0;
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
   overflow: hidden;
   min-height: 0;
 }
@@ -158,57 +157,56 @@ const {
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.5rem 0.75rem;
-  border-bottom: 2px solid var(--win95-button-dark-shadow);
-  font-size: 0.8125rem;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--win95-text-disabled);
+  color: var(--canvas-text);
 }
 
+/* Stats: raised box-shadow */
 .base64-encoder__stats {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 11px;
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0;
 }
 
 .base64-encoder__stats span {
-  padding: 0.25rem 0.5rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  padding: 0.125rem 0.375rem;
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
   border-radius: 0;
   white-space: nowrap;
 }
 
+/* Field input */
 .base64-encoder__textarea {
   flex: 1;
   width: 100%;
-  padding: 0.75rem;
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  padding: 3px 4px;
+  background: var(--border-lightest);
+  box-shadow: var(--border-field);
   border: none;
+  border-radius: 0;
   resize: none;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.9375rem;
+  font-size: 11px;
   line-height: 1.6;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   outline: none;
   overflow-y: auto;
 }
 
 .base64-encoder__textarea::placeholder {
-  color: var(--win95-text-disabled);
-  opacity: 0.5;
+  color: var(--border-dark);
 }
 
 .base64-encoder__textarea:focus {
-  outline: 2px dotted var(--win95-text);
+  outline: 1px dotted var(--focus);
   outline-offset: -2px;
 }
 
@@ -217,16 +215,16 @@ const {
 }
 
 .base64-encoder__textarea::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--surface);
 }
 
 .base64-encoder__textarea::-webkit-scrollbar-thumb {
-  background: var(--win95-button-shadow);
+  background: var(--border-dark);
   border-radius: 0;
 }
 
 .base64-encoder__textarea::-webkit-scrollbar-thumb:hover {
-  background: var(--win95-button-dark-shadow);
+  background: var(--border-darkest);
 }
 
 .base64-encoder__actions {
@@ -235,8 +233,6 @@ const {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-
-
 
 @media (max-width: 1024px) {
   .base64-encoder__panes {

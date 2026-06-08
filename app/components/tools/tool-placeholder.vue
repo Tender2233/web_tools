@@ -18,7 +18,9 @@ defineProps<Props>()
 <style scoped>
 .placeholder {
   min-height: 360px;
-  border: 1px dashed var(--win95-button-dark-shadow);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  border: 1px dashed var(--border-dark);
   border-radius: 0;
   display: flex;
   flex-direction: column;
@@ -26,21 +28,18 @@ defineProps<Props>()
   justify-content: center;
   text-align: center;
   gap: 0.8rem;
-  color: var(--win95-text-disabled);
-  background: var(--win95-surface);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  color: var(--border-dark);
 }
 
 .placeholder h2 {
   margin: 0;
-  color: var(--win95-text);
+  color: var(--canvas-text);
 }
 
 .placeholder span {
-  font-size: 0.9rem;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--win95-text-disabled);
-  text-shadow: 1px 1px 0 var(--win95-button-highlight);
+  color: var(--border-dark);
 }
 </style>

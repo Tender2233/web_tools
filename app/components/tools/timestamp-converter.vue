@@ -262,10 +262,8 @@ const onTzBlur = () => {
   align-items: center;
   gap: 1rem;
   padding: 0.875rem 1.25rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
   border-radius: 0;
 }
 
@@ -274,8 +272,8 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--win95-text-disabled);
+  font-weight: 700;
+  color: var(--canvas-text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -295,7 +293,7 @@ const onTzBlur = () => {
 .ts-converter__tz-search-icon {
   position: absolute;
   left: 0.75rem;
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -303,21 +301,22 @@ const onTzBlur = () => {
 .ts-converter__tz-search {
   width: 100%;
   padding: 0.5rem 0.875rem 0.5rem 2.25rem;
-  background: var(--win95-surface);
-  border: 1px solid var(--win95-border-dark);
+  background: var(--border-lightest);
+  border: none;
   border-radius: 0;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   font-size: 0.9375rem;
   outline: none;
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  box-shadow: var(--border-field);
 }
 
 .ts-converter__tz-search:focus {
-  border-color: var(--win95-title-bar);
+  outline: 1px dotted var(--focus);
+  outline-offset: -2px;
 }
 
 .ts-converter__tz-search::placeholder {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   opacity: 0.7;
 }
 
@@ -325,12 +324,10 @@ const onTzBlur = () => {
 :global(.ts-converter__tz-dropdown) {
   max-height: 220px;
   overflow-y: auto;
-  background: var(--win95-surface);
+  background: var(--border-lightest);
   border: none;
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
   border-radius: 0;
-  box-shadow: none;
   z-index: 9999;
 }
 
@@ -343,14 +340,14 @@ const onTzBlur = () => {
 }
 
 :global(.ts-converter__tz-dropdown::-webkit-scrollbar-thumb) {
-  background: var(--win95-button-dark-shadow);
+  background: var(--border-dark);
   border-radius: 0;
 }
 
 :global(.ts-converter__tz-option) {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
@@ -358,20 +355,20 @@ const onTzBlur = () => {
 }
 
 :global(.ts-converter__tz-option:hover) {
-  background: var(--win95-title-bar);
-  color: var(--win95-title-text);
+  background: var(--header-bg);
+  color: var(--header-text);
 }
 
 :global(.ts-converter__tz-option.is-active) {
-  background: var(--win95-button-dark-shadow);
-  color: var(--win95-button-highlight);
+  background: var(--border-dark);
+  color: var(--border-lightest);
   font-weight: 600;
 }
 
 :global(.ts-converter__tz-empty) {
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   text-align: center;
 }
 
@@ -381,10 +378,8 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1.25rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
   border-radius: 0;
   font-size: 0.875rem;
   flex-wrap: wrap;
@@ -392,8 +387,8 @@ const onTzBlur = () => {
 
 .ts-converter__now-label {
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--win95-text-disabled);
+  font-weight: 700;
+  color: var(--canvas-text);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -403,12 +398,12 @@ const onTzBlur = () => {
 .ts-converter__now-dt {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.875rem;
-  color: var(--win95-title-bar);
+  color: var(--canvas-text);
   white-space: nowrap;
 }
 
 .ts-converter__now-sep {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
 }
 
 .ts-converter__use-now {
@@ -423,10 +418,10 @@ const onTzBlur = () => {
   align-items: center;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  background: var(--win95-error-bg);
-  border: 2px solid var(--win95-error-border);
+  background: var(--border-lightest);
+  border: 2px solid #e00000;
   border-radius: 0;
-  color: var(--win95-error-text);
+  color: #e00000;
   font-size: 0.9375rem;
   animation: slideDown 0.3s ease-out;
 }
@@ -440,17 +435,17 @@ const onTzBlur = () => {
 }
 
 .ts-converter__panel {
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  border: none;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
-  transition: border-color 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .ts-converter__panel:focus-within {
-  border-color: var(--win95-title-bar);
+  outline: 1px dotted var(--focus);
+  outline-offset: -2px;
 }
 
 .ts-converter__panel-header {
@@ -459,21 +454,21 @@ const onTzBlur = () => {
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.875rem 1.25rem;
-  border-bottom: 1px solid var(--win95-button-dark-shadow);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .ts-converter__panel-title {
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--win95-text-disabled);
+  color: var(--canvas-text);
 }
 
 .ts-converter__panel-hint {
   font-size: 0.75rem;
-  color: var(--win95-text-disabled);
-  opacity: 0.6;
+  color: var(--border-dark);
+  opacity: 0.8;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
@@ -491,23 +486,21 @@ const onTzBlur = () => {
   font-weight: 600;
   border: none;
   border-radius: 0;
-  background: var(--win95-button-face);
-  color: var(--win95-text);
+  background: var(--surface);
+  color: var(--canvas-text);
   cursor: pointer;
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
 
 .ts-converter__unit-btn:hover:not(.is-active) {
-  background: var(--win95-button-face);
+  background: var(--surface);
 }
 
 .ts-converter__unit-btn.is-active {
-  background: var(--win95-button-face);
-  color: var(--win95-text);
-  border-color: var(--win95-button-dark-shadow) var(--win95-button-light) var(--win95-button-light) var(--win95-button-dark-shadow);
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  background: var(--surface);
+  color: var(--canvas-text);
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  padding: 0.3125rem 0.5625rem 0.1875rem 0.6875rem;
 }
 
 /* Input + copy button */
@@ -520,12 +513,12 @@ const onTzBlur = () => {
 .ts-converter__input {
   width: 100%;
   padding: 1.125rem 3rem 1.125rem 1.25rem;
-  background: var(--win95-surface);
+  background: var(--border-lightest);
   border: none;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   font-size: 1.125rem;
   outline: none;
-  box-shadow: inset 1px 1px 0 var(--win95-button-dark-shadow), inset -1px -1px 0 var(--win95-button-highlight);
+  box-shadow: var(--border-field);
 }
 
 .ts-converter__input--mono {
@@ -533,7 +526,7 @@ const onTzBlur = () => {
 }
 
 .ts-converter__input::placeholder {
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   opacity: 0.45;
 }
 
@@ -550,7 +543,7 @@ const onTzBlur = () => {
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  color: var(--win95-text-disabled);
+  color: var(--border-dark);
   opacity: 0.5;
 }
 
@@ -567,10 +560,9 @@ const onTzBlur = () => {
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.625rem 1rem;
-  background: var(--win95-button-face);
-  border: 2px solid;
-  border-color: var(--win95-button-light) var(--win95-button-dark-shadow) var(--win95-button-dark-shadow) var(--win95-button-light);
-  box-shadow: -1px -1px 0 var(--win95-button-highlight), 1px 1px 0 var(--win95-button-shadow);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border: none;
   border-radius: 0;
   flex: 1;
   min-width: 120px;
@@ -581,12 +573,12 @@ const onTzBlur = () => {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--win95-text-disabled);
+  color: var(--canvas-text);
 }
 
 .ts-converter__stat-value {
   font-size: 0.9375rem;
-  color: var(--win95-text);
+  color: var(--canvas-text);
   font-weight: 500;
 }
 

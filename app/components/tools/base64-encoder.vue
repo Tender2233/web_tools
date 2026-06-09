@@ -12,6 +12,21 @@
           清空
         </button>
       </div>
+      <div class="base64-encoder__toolbar-group">
+        <span class="base64-encoder__variant-label">模式</span>
+        <button
+          @click="variant = 'standard'"
+          :class="['btn', variant === 'standard' ? 'btn-primary' : 'btn-ghost']"
+        >
+          标准
+        </button>
+        <button
+          @click="variant = 'url'"
+          :class="['btn', variant === 'url' ? 'btn-primary' : 'btn-ghost']"
+        >
+          URL 安全
+        </button>
+      </div>
     </div>
 
     <div v-if="error" class="base64-encoder__error">
@@ -78,6 +93,7 @@ const {
   input,
   output,
   error,
+  variant,
   stats,
   isInputEmpty,
   hasValidOutput,
@@ -111,6 +127,14 @@ const {
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.base64-encoder__variant-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--border-darkest);
 }
 
 /* Error: white bg + red border */

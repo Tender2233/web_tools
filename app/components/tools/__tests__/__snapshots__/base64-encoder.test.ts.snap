@@ -4,6 +4,7 @@ exports[`Base64Encoder > matches snapshot 1`] = `
 "<div data-v-db7b857b="" class="base64-encoder">
   <div data-v-db7b857b="" class="base64-encoder__toolbar">
     <div data-v-db7b857b="" class="base64-encoder__toolbar-group"><button data-v-db7b857b="" disabled="" class="btn btn-primary"> 编码 </button><button data-v-db7b857b="" disabled="" class="btn btn-secondary"> 解码 </button><button data-v-db7b857b="" disabled="" class="btn btn-ghost"> 清空 </button></div>
+    <div data-v-db7b857b="" class="base64-encoder__toolbar-group"><span data-v-db7b857b="" class="base64-encoder__variant-label">模式</span><button data-v-db7b857b="" class="btn btn-primary"> 标准 </button><button data-v-db7b857b="" class="btn btn-ghost"> URL 安全 </button></div>
   </div>
   <!--v-if-->
   <div data-v-db7b857b="" class="base64-encoder__panes">

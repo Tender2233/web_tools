@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
 
-type ToolId = 'json' | 'base64' | 'timestamp' | 'hash'
+type ToolId = 'json' | 'base64' | 'timestamp' | 'hash' | 'jwt'
 
 
 type ToolMeta = {
@@ -34,8 +34,13 @@ const tools: ToolMeta[] = [
     id: 'hash',
     label: 'SHA-256 工具',
     badge: 'Lab',
-    description: '生成十六进制与 Base64 摘要',
-    soon: true
+    description: '生成十六进制与 Base64 摘要'
+  },
+  {
+    id: 'jwt',
+    label: 'JWT 解码器',
+    badge: 'Lab',
+    description: '解析、查看并编辑 JWT Token'
   }
 ]
 
@@ -46,7 +51,8 @@ export const useAppShell = () => {
     json: defineAsyncComponent(() => import('~/components/tools/json-formatter.vue')),
     base64: defineAsyncComponent(() => import('~/components/tools/base64-encoder.vue')),
     timestamp: defineAsyncComponent(() => import('~/components/tools/timestamp-converter.vue')),
-    hash: defineAsyncComponent(() => import('~/components/tools/tool-placeholder.vue'))
+    hash: defineAsyncComponent(() => import('~/components/tools/sha256-encoder.vue')),
+    jwt: defineAsyncComponent(() => import('~/components/tools/jwt-decoder.vue'))
   } as Record<ToolId, Component>
 
   const selectTool = (id: ToolId) => {
@@ -58,7 +64,7 @@ export const useAppShell = () => {
   const activeToolMeta = computed(() => tools.find(tool => tool.id === activeTool.value) ?? tools[0])
 
   const activeToolProps = computed(() => {
-    if (activeTool.value === 'json' || activeTool.value === 'base64' || activeTool.value === 'timestamp') {
+    if (activeTool.value === 'json' || activeTool.value === 'base64' || activeTool.value === 'timestamp' || activeTool.value === 'hash' || activeTool.value === 'jwt') {
       return {
         layout: 'full'
       }

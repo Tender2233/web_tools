@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JwtDecoder > matches snapshot 1`] = `
+"<div data-v-e161fdaf="" class="jwt-decoder">
+  <div data-v-e161fdaf="" class="jwt-decoder__toolbar">
+    <div data-v-e161fdaf="" class="jwt-decoder__toolbar-group"><button data-v-e161fdaf="" disabled="" class="btn btn-primary"> 解析 </button><button data-v-e161fdaf="" disabled="" class="btn btn-ghost"> 清空 </button>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+  <!--v-if-->
+  <div data-v-e161fdaf="" class="jwt-decoder__input-pane">
+    <div data-v-e161fdaf="" class="jwt-decoder__pane-header"><span data-v-e161fdaf="">JWT Token</span>
+      <!--v-if-->
+    </div><textarea data-v-e161fdaf="" class="jwt-decoder__textarea" placeholder="粘贴 JWT Token (header.payload.signature)..." spellcheck="false"></textarea>
+  </div>
+  <!--v-if-->
+  <!-- Time claims -->
+  <!--v-if-->
+</div>"
+`;

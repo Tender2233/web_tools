@@ -5,7 +5,7 @@ exports[`App > matches snapshot 1`] = `
   <div class="shell">
     <header class="topbar" aria-label="工具切换与主题设置">
       <div class="brand-chip">Web Tools</div>
-      <nav class="tool-nav" role="tablist"><button class="tool-btn" type="button" role="tab" aria-selected="true" title="格式化 / 压缩并校验 JSON">JSON 格式化</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="UTF-8 安全的编码与解码">Base64 编解码</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="Convert between Unix timestamp and formatted date/time">Timestamp</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="生成十六进制与 Base64 摘要">SHA-256 工具</button></nav>
+      <nav class="tool-nav" role="tablist"><button class="tool-btn" type="button" role="tab" aria-selected="true" title="格式化 / 压缩并校验 JSON">JSON 格式化</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="UTF-8 安全的编码与解码">Base64 编解码</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="Convert between Unix timestamp and formatted date/time">Timestamp</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="生成十六进制与 Base64 摘要">SHA-256 工具</button><button class="tool-btn" type="button" role="tab" aria-selected="false" title="解析、查看并编辑 JWT Token">JWT 解码器</button></nav>
     </header>
     <section class="workspace">
       <div class="surface">

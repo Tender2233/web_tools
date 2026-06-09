@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sha256Encoder > matches snapshot 1`] = `
+"<div data-v-e1108886="" class="sha256-encoder">
+  <div data-v-e1108886="" class="sha256-encoder__toolbar">
+    <div data-v-e1108886="" class="sha256-encoder__toolbar-group"><button data-v-e1108886="" disabled="" class="btn btn-primary"> 计算哈希 </button><button data-v-e1108886="" disabled="" class="btn btn-ghost"> 清空 </button></div>
+  </div>
+  <!--v-if-->
+  <div data-v-e1108886="" class="sha256-encoder__panes">
+    <div data-v-e1108886="" class="sha256-encoder__pane">
+      <div data-v-e1108886="" class="sha256-encoder__pane-header"><span data-v-e1108886="">输入</span></div><textarea data-v-e1108886="" class="sha256-encoder__textarea" placeholder="粘贴或输入文本以生成 SHA-256 摘要..." spellcheck="false"></textarea>
+    </div>
+    <div data-v-e1108886="" class="sha256-encoder__pane">
+      <div data-v-e1108886="" class="sha256-encoder__pane-header"><span data-v-e1108886="">输出</span>
+        <!--v-if-->
+      </div>
+      <div data-v-e1108886="" class="sha256-encoder__outputs">
+        <div data-v-e1108886="" class="sha256-encoder__output-field">
+          <div data-v-e1108886="" class="sha256-encoder__output-label">十六进制 (Hex)</div>
+          <div data-v-e1108886="" class="sha256-encoder__output-row"><input data-v-e1108886="" class="sha256-encoder__output-input" placeholder="hex 摘要..." readonly="" spellcheck="false" value=""><button data-v-e1108886="" disabled="" class="btn btn-secondary sha256-encoder__copy-btn" title="复制十六进制摘要"><svg data-v-e1108886="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                <path data-v-e1108886="" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+                <path data-v-e1108886="" d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+              </svg></button></div>
+        </div>
+        <div data-v-e1108886="" class="sha256-encoder__output-field">
+          <div data-v-e1108886="" class="sha256-encoder__output-label">Base64</div>
+          <div data-v-e1108886="" class="sha256-encoder__output-row"><input data-v-e1108886="" class="sha256-encoder__output-input" placeholder="base64 摘要..." readonly="" spellcheck="false" value=""><button data-v-e1108886="" disabled="" class="btn btn-secondary sha256-encoder__copy-btn" title="复制 Base64 摘要"><svg data-v-e1108886="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                <path data-v-e1108886="" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+                <path data-v-e1108886="" d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+              </svg></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-v-e1108886="" class="sha256-encoder__actions"><button data-v-e1108886="" disabled="" class="btn btn-secondary"><svg data-v-e1108886="" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+        <path data-v-e1108886="" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
+        <path data-v-e1108886="" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"></path>
+      </svg> 下载摘要 </button></div>
+</div>"
+`;
